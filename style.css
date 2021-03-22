@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
+/* Global settings */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Hind Guntur', sans-serif;
+}
+
+.blue:checked{
+    background-color: blue;
+}
+
+.red:checked{
+    background-color: red;
+}
+
+.green:checked{
+    background-color: green;
+}
+
+.orange:checked{
+    background-color: orange;
+}
+
+.purple:checked{
+    background-color: purple;
+}
+
+#main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main > span{
+    text-align: center;
+    width: 63vw;
+}
+.header{
+    position: sticky;
+    background-color: white;
+    top: 0;
+    height: 10vh;
+    width: 100vw;
+    padding-top: 1.5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+}
+
+.pagelayout{
+    border-bottom: 1vw solid black;
+    height: 100vh;
+    background-color: rgb(194, 194, 194);
+}
+
+.pagelayoutaboutus{
+    height: none;
+    background-color: rgb(194, 194, 194);
+}
+
+.scroller {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroller section {
+    scroll-snap-align: start;
+}
+
+#secondtop{
+    margin: 5vh;
+}
+
+p{
+    font-size: 4vw;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 6vw;
+}
+
+#mainpageimg{
+    width: 9vw;
+}
+
+#top{
+    margin-top: 20vh;
+    color: rgb(53, 53, 53);
+    font-weight: bold;
+    font-size: 5vw;
+}
+
+#bottom{
+    margin-top: 22vh;
+}
+
+.display{
+    position: fixed;
+    background-color: rgba(194, 194, 194, 0.9);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    transition: all .5s ease-in-out; 
+}
+
+  #showmenu{
+    left: -100vw;
+  }
+
+  .hiddenheader{
+    margin: -1vh;
+    width: 100vw;
+    height: 10vh;
+    font-size: 3.3vw;
+  }
+
+  .alternatives{
+    margin: 5vh;
+    list-style-type: none;
+  }
+
+  .alternatives > li{
+      font-size: 6vw;
+  }
+
+.item {
+	position: absolute;
+    width: 12vw;
+	height: 5vh;
+    z-index: 10;
+    border-radius: 3vw;
+    top: 2.5vh;
+    left: 8vw;
+
+}
+
+.menuLine {
+	position: absolute;
+	height: 0.6vh;
+	width: 8vw;
+	background: black;
+    border-radius: 4vw;
+	transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
+    z-index: 10;
+}
+
+.menuLine1 {
+	top:19%;
+}
+
+.menuLine2 {
+	top:49%;
+}
+
+.menuLine3 {
+	top:79%;
+}
+
+.menu.close .menuLine1 {
+	transform:rotate(45deg);
+	top:49%;
+}
+
+.menu.close .menuLine2, .menu.close .menuLine3 {
+	transform:rotate(-45deg);
+	top:49%;
+}
+
+.imagesinburger{
+    width: 60vw;
+    text-align: center;
+}
+
+.imghamburger{
+    height: 10vh;
+    width: 20vw;
+}
+
+.merinfo{
+    display: flex;
+    width: 80vw;
+    justify-content: space-around;
+}
+
+.aboutusheader{
+    position: fixed;
+    top: 1vh;
+    height: 10vh;
+}
+
+#removeborder{
+    border: none;
+}
+
+.picturesaboutus{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 2vw;
+    column-gap: 6vw;
+    justify-content: center;
+}
+
+.pictures{
+    width: 36vw;
+    height: 20vh;
+    background-color: green;
+    border: 1vw solid black;
+    border-radius: 50%;
+}
+
+.invisible{
+    background-color: transparent;
+    border: none;
+}
+
+.name{
+    width: 40vw;
+    text-align: center;
+    
+}
+
+.textaboutus{
+    padding: 4vh;
+    text-align: center;
+}
+
+.profilepicture{
+    width: 33.5vw;
+    height: 18.7vh;
+    border-radius: 50%;
+}
+
+.profiletitles{
+    width: 35vw;
+    text-align: center;
+    border-bottom: 1vw solid black;
+    font-weight: bold;
+    
+}
+
+.enableborderbottom{
+    border-bottom: 1vw solid black;
+}
+
+.topinfobutton{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border-radius: 50%;
+    width: 9.6vw;
+    padding-top: 0.1vh;
+    height: 5.5vh;
+    text-align: center;
+    font-size: 6vw;
+    font-weight: bold;
+    right: 10vw;
+    top: 2.5vh;
+}
+
+#layoutinaccidents{
+    display: flex;
+    height: 86vh;
+    margin-top: 1vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.barsoncrashes{
+    width: 90vw;
+    height: 70vh;
+    border: 1vw solid black;
+}
+
+.buttoncontainer{
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 44vw;
+}
+
+.btn{
+    -webkit-appearance: none;
+    font-size: 8.5vw;
+    font-weight: bold;
+    width: 14vw;
+    height: 7.7vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 20%;
+    border: 1.5vw solid rgba(100, 100, 100, 0.6);
+    transition: all 0.2s ease-in-out;
+    
+}
+
+.btn:focus{
+    outline: none;
+}
+
+.btn:checked{
+    box-shadow: inset 0 0 1vw black;
+    border: none;
+}
+
+#blue:checked{
+    background-color: blue;
+    
+}
+
+#umea:checked{
+    background-color: red;
+}
+
+#malmo:checked{
+    background-color: green;
+}
+
+#goteborg:checked{
+    background-color: orange;
+}
+
+#stockholm:checked{
+    background-color: purple;
+}
+
+.textforcheckbox{
+    font-size: 5vw;
+    margin-left: 3vw;
+}
+
+.btn:checked::before{
+    content: '\2714';
+}
+
+

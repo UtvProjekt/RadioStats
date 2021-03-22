@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om Oss</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://unpkg.com/vue@3.0.5" integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div id="app">
+        
+        <div class="item menu" v-bind:class="{close: menuClose}" @click="toggleMenuIcon">
+                <div class="menuLine menuLine1"></div>
+                <div class="menuLine menuLine2"></div>
+                <div class="menuLine menuLine3"></div>
+            </div>
+            
+            
+            <div class="display" id="showmenu">
+                
+                <div class="header hiddenheader aboutusheader"><h1>RadioStats</h1></div>
+    
+                <ul class="alternatives">
+                    <li><a href="index.html">Home Page</a></li>
+                </ul>
+                
+                <ul class="alternatives merinfo">
+                    <li>Lyssna på Radio</li>
+                </ul>
+                
+            </div>
+            
+            
+        </div>
+        
+        <div class="scroller">
+            <div class="pagelayoutaboutus" id="removeborder">
+                <div class="header"><h1>Om Oss</h1></div>
+
+                <div class="textaboutus">
+                    <h3>Team BabyBlue</h3>
+                    <p class="enableborderbottom">Vi är några blalalalalal</p> 
+                </div>  
+
+                <div class="picturesaboutus">
+
+                    <div class="profiletitles"><h3>UX</h3></div>
+                    <div class="profiletitles"><h3>Utvecklare</h3></div>
+                    <div class="pictures"><img src="images/feelsdankman.jfif" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="images/monkaU.png" alt="231" class="profilepicture"></div>
+                    <div class="name">test</div>
+                    <div class="name">test</div>
+                    <div class="pictures"><img src="images/BOOBA.gif" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="images/rank1.jpg" alt="231" class="profilepicture"></div>
+                    <div class="name">test</div>
+                    <div class="name">test</div>
+                    <div class="pictures"><img src="images/modCheck.gif" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="images/Sadge.png" alt="231" class="profilepicture"></div>
+                    <div class="name">test</div>
+                    <div class="name">test</div>
+                    <div class="pictures"><img src="images/HYPERS.jpg" alt="231" class="profilepicture"></div>
+                    <div class="pictures invisible"></div>
+                    <div class="name">test</div>
+                    <div class="name"></div>
+                </div>
+
+            </div>
+        </div>
+        </body>
+        </html>

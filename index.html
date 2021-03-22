@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadioStats</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://unpkg.com/vue@3.0.5" integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div id="app">
+        
+        <div class="item menu" v-bind:class="{close: menuClose}" @click="toggleMenuIcon">
+                <div class="menuLine menuLine1"></div>
+                <div class="menuLine menuLine2"></div>
+                <div class="menuLine menuLine3"></div>
+
+            </div>
+            
+            
+            <div class="display" id="showmenu">
+                
+                <div class="header hiddenheader"><h1>RadioStats</h1></div>
+    
+                <ul class="alternatives">
+                    <li>Olycksstatistik</li>
+                    <li>Trafikstörning</li>
+                    <li>Dokumentärer</li>    
+                </ul>
+                
+                <div class="imagesinburger">
+                   <img src="images/arrow2.png" alt="arrowdown" class="imghamburger">
+                   <img src="images/arrow3.png" alt="arrowup" class="imghamburger">
+                   <span>
+                       <h3>Så här fungerar det</h3>
+                       <p>
+                           Swipa nedåt för att ta del av nästa visualisering. Swipa uppåt för att återvända till föregående. DU kan också använda menyn längst upp för att navigera.
+                        </p>
+                    </span>
+                </div>
+                
+                <ul class="alternatives merinfo">
+                    <li>Lyssna på Radio</li>
+                    <a href="aboutus.html"><li>Om Oss</li></a>
+                </ul>
+                
+            </div>
+            
+            
+        </div>
+        
+        <div class="scroller">
+            <section id="main" class="pagelayout">
+                <div class="header"><h1>RadioStats</h1></div>
+                <span id="top">
+                    Hej och välkommen till RadioStats!<p id="secondtop">Här finns visualiseringar av data från Sveriges radio. Lek runt med statistiken för att lära dig mer.</p>
+                </span>
+                <span id="bottom">
+                    Swipa ner för att börja
+                </span>
+                <img src="images/arrow2.png" alt="arrow" id="mainpageimg">
+            </section>
+
+            <section class="pagelayout">
+                <div class="header"><h1>Olycksstatistik</h1><div class="topinfobutton">i</div></div>
+
+                <div id="layoutinaccidents">
+                    <div class="barsoncrashes">
+
+                    </div>
+
+                    <div class="buttoncontainer">
+                        <div class="buttons">
+                            <input type="checkbox" class="btn" id="goteborg">
+                            <label for="goteborg" class="textforcheckbox">Göteborg</label>
+                            <input type="checkbox" class="btn" id="malmo">
+                            <label for="malmo" class="textforcheckbox">Malmö</label>
+                        </div>
+                        <div class="buttons">
+                            <input type="checkbox" class="btn" id="stockholm">
+                            <label for="stockholm" class="textforcheckbox">Stockholm</label>
+                            <input type="checkbox" class="btn" id="umea">
+                            <label for="umea" class="textforcheckbox">Umeå</label>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="pagelayout">
+                <div class="header"><h1>Trafikstörning</h1><div class="topinfobutton">i</div></div>
+            </section>
+
+            <section class="pagelayout">
+                <div class="header"><h1>Dokumentärer</h1><div class="topinfobutton">i</div></div>
+            </section>
+            
+        </div>
+
+
+</body>
+</html>
