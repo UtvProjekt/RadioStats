@@ -7,37 +7,37 @@
     font-family: 'Hind Guntur', sans-serif;
 }
 
-.blue:checked{
-    background-color: blue;
+p{
+    font-size: 4vw;
 }
 
-.red:checked{
-    background-color: red;
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 6vw;
 }
 
-.green:checked{
-    background-color: green;
+.green{
+    background-color: #6BA579;
 }
 
-.orange:checked{
-    background-color: orange;
+.purple{
+    background-color: #A23FA1;
 }
 
-.purple:checked{
-    background-color: purple;
+.orange{
+    background-color: #D86B36;
 }
 
-#main{
+.red{
+    background-color: #CF3746;
+}
+
+.pagelayout{
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: rgb(240, 240, 240);
 }
 
-#main > span{
-    text-align: center;
-    width: 63vw;
-}
 .header{
     position: sticky;
     background-color: white;
@@ -51,20 +51,10 @@
     color: black;
 }
 
-.pagelayout{
-    border-bottom: 1vw solid black;
-    height: 100vh;
-    background-color: rgb(194, 194, 194);
-}
-
-.pagelayoutaboutus{
-    height: none;
-    background-color: rgb(194, 194, 194);
-}
-
 .scroller {
     height: 100vh;
     overflow-y: scroll;
+    scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
 
@@ -72,67 +62,182 @@
     scroll-snap-align: start;
 }
 
-#secondtop{
-    margin: 5vh;
+.btn{
+    -webkit-appearance: none;
+    font-size: 7.6vw;
+    font-weight: bold;
+    width: 12vw;
+    height: 6.6vh;
+    background-color: white;
+    display: flex;
+    margin-left: 4vw;
+    justify-content: center;
+    border-radius: 20%;
+    border: 1.5vw solid rgba(100, 100, 100, 0.6);
+    transition: all 0.2s ease-in-out;
 }
 
-p{
+#linkdecoration{
+    text-decoration: underline;
+    color: rgb(40, 40, 255);
     font-size: 4vw;
 }
 
-a{
-    text-decoration: none;
-    color: black;
+.invisiblebackground{
+    background-color: transparent;
+    border: none;
+}
+
+.enableborderbottom{
+    border-bottom: 1vw solid black;
+}
+
+/*REPLACE WITH IMAGE LATER*/
+.topinfobutton{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border-radius: 50%;
+    width: 9.6vw;
+    padding-top: 0.1vh;
+    height: 5.5vh;
+    text-align: center;
+    font-size: 6vw;
+    font-weight: bold;
+    right: 10vw;
+    top: 2.5vh;
+}
+/*Starting Page*/
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main > span{
+    text-align: center;
+}
+
+.pagelayoutaboutus{
+    height: none;
+    background-color: rgb(255, 255, 255);
+}
+
+.barsonmainpage{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 30vw;
+    height: 20vh;
+    margin-top: 10vh;
+}
+
+.bars{
+    width: 8vw;
+}
+
+#bar1{
+    height: 12vh;
+    background-color: rgba(139, 36, 187, 0.85);
+}
+
+#bar2{
+    height: 16vh;
+    background-color: rgb(207, 116, 31);
+}
+
+#bar3{
+    height: 20vh;
+    background-color: rgba(25, 119, 16, 0.7);
+}
+
+#topspan{
+    width: 80vw;
+    margin-top: 14vh;
+    color: rgb(53, 53, 53);
+    font-weight: bold;
     font-size: 6vw;
 }
 
-#mainpageimg{
-    width: 9vw;
+#bottomspan{
+    margin-top: 16vh;
+}
+#marginfromtopspan{
+    margin-top: 2vh;
+    font-size: 4.5vw;
 }
 
-#top{
-    margin-top: 20vh;
-    color: rgb(53, 53, 53);
-    font-weight: bold;
-    font-size: 5vw;
-}
-
-#bottom{
-    margin-top: 22vh;
-}
-
+/*Hamburger Menu (Side menu)*/
 .display{
     position: fixed;
-    background-color: rgba(194, 194, 194, 0.9);
+    background-color: transparent;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(122, 115, 115);
     height: 100vh;
-    width: 100vw;
+    width: 80vw;
     z-index: 1;
     transition: all .5s ease-in-out; 
 }
 
-  #showmenu{
-    left: -100vw;
-  }
+#mainpageimg{
+    width: 8vw;
+}
 
-  .hiddenheader{
-    margin: -1vh;
+#showmenu{
+    left: -100vw;
+}
+
+.hiddenheader{
+    margin-top: -4vh;
     width: 100vw;
     height: 10vh;
     font-size: 3.3vw;
-  }
+}
 
-  .alternatives{
-    margin: 5vh;
+.alternatives{
+    margin-bottom: 10vh;
+    margin-left: 5vw;
     list-style-type: none;
-  }
+}
 
-  .alternatives > li{
-      font-size: 6vw;
-  }
+.alternatives > li{
+    font-size: 6vw;
+}
+
+.middlesectioninburger{
+    width: 70vw;
+    margin-bottom: 6.3vh;
+    margin-left: 5vw;
+}
+
+#hiddenblockinburger {
+    visibility: hidden;
+    border-top: 0.7vw dotted black;
+    width: 50vw;
+}
+
+#arrowswitchimg{
+    position: absolute;
+    right: 12vw;
+    top: 48.6vh;
+    width: 4vw;
+    transform: rotate(180deg);
+    transition: transform .3s;    
+}
+
+#arrowswitchimg:focus{
+    transform: rotate(180deg);
+}
+
+.merinfo{
+    margin-top: 10vh;
+}
+
+span > h3{
+    letter-spacing: 0.3vw;
+}
 
 .item {
 	position: absolute;
@@ -177,30 +282,12 @@ a{
 	top:49%;
 }
 
-.imagesinburger{
-    width: 60vw;
-    text-align: center;
-}
-
-.imghamburger{
-    height: 10vh;
-    width: 20vw;
-}
-
-.merinfo{
-    display: flex;
-    width: 80vw;
-    justify-content: space-around;
-}
+/*Om Oss Sidan*/
 
 .aboutusheader{
     position: fixed;
-    top: 1vh;
+    top: 4vh;
     height: 10vh;
-}
-
-#removeborder{
-    border: none;
 }
 
 .picturesaboutus{
@@ -221,7 +308,7 @@ a{
     border-radius: 50%;
 }
 
-.invisible{
+.invisiblebackground{
     background-color: transparent;
     border: none;
 }
@@ -248,28 +335,9 @@ a{
     text-align: center;
     border-bottom: 1vw solid black;
     font-weight: bold;
-    
 }
 
-.enableborderbottom{
-    border-bottom: 1vw solid black;
-}
-
-.topinfobutton{
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    color: #fff;
-    border-radius: 50%;
-    width: 9.6vw;
-    padding-top: 0.1vh;
-    height: 5.5vh;
-    text-align: center;
-    font-size: 6vw;
-    font-weight: bold;
-    right: 10vw;
-    top: 2.5vh;
-}
-
+/*2nd Page*/
 #layoutinaccidents{
     display: flex;
     height: 86vh;
@@ -282,12 +350,27 @@ a{
 .barsoncrashes{
     width: 90vw;
     height: 70vh;
-    border: 1vw solid black;
+}
+
+.trafikstatistik{
+    width: inherit;
+    height: 22vh;
+    padding: 2vh 3vw;
+    border-bottom: 0.6vw solid black;
+    border-left: 0.6vw solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barsintrafik{
+    height: 2.5vh;
+    width: 0vw;
 }
 
 .buttoncontainer{
     width: 100vw;
-    height: 30vh;
+    height: 22vh;
     display: flex;
     justify-content: center;
 }
@@ -296,22 +379,7 @@ a{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    width: 44vw;
-}
-
-.btn{
-    -webkit-appearance: none;
-    font-size: 8.5vw;
-    font-weight: bold;
-    width: 14vw;
-    height: 7.7vh;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    border-radius: 20%;
-    border: 1.5vw solid rgba(100, 100, 100, 0.6);
-    transition: all 0.2s ease-in-out;
-    
+    width: 46vw;
 }
 
 .btn:focus{
@@ -319,29 +387,23 @@ a{
 }
 
 .btn:checked{
-    box-shadow: inset 0 0 1vw black;
     border: none;
 }
 
-#blue:checked{
-    background-color: blue;
-    
-}
-
 #umea:checked{
-    background-color: red;
+    background-color: #CF3746;
 }
 
 #malmo:checked{
-    background-color: green;
+    background-color: #6BA579;
 }
 
 #goteborg:checked{
-    background-color: orange;
+    background-color: #D86B36;
 }
 
 #stockholm:checked{
-    background-color: purple;
+    background-color: #A23FA1;
 }
 
 .textforcheckbox{
@@ -352,5 +414,7 @@ a{
 .btn:checked::before{
     content: '\2714';
 }
+
+
 
 

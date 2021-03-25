@@ -17,33 +17,27 @@
                 <div class="menuLine menuLine1"></div>
                 <div class="menuLine menuLine2"></div>
                 <div class="menuLine menuLine3"></div>
-
             </div>
             
             
             <div class="display" id="showmenu">
                 
-                <div class="header hiddenheader"><h1>RadioStats</h1></div>
+                <div class="header hiddenheader"><h1><a href="#main" @click="toggleMenuIcon">RadioStats<a></h1></div>
     
                 <ul class="alternatives">
-                    <li>Olycksstatistik</li>
-                    <li>Trafikstörning</li>
-                    <li>Dokumentärer</li>    
+                    <li><a href="#olycksstatistik" id="olycksstatistikbold" @click="toggleMenuIcon">Olycksstatistik</a></li>
+                    <li><a href="#trafikstörning"  @click="toggleMenuIcon">Trafikstörning</a></li>
+                    <li><a href="#dokumentärer"  @click="toggleMenuIcon">Dokumentärer</a></li>
                 </ul>
                 
-                <div class="imagesinburger">
-                   <img src="images/arrow2.png" alt="arrowdown" class="imghamburger">
-                   <img src="images/arrow3.png" alt="arrowup" class="imghamburger">
-                   <span>
-                       <h3>Så här fungerar det</h3>
-                       <p>
-                           Swipa nedåt för att ta del av nästa visualisering. Swipa uppåt för att återvända till föregående. DU kan också använda menyn längst upp för att navigera.
+                <div class="middlesectioninburger">
+                    <h3>Mer om statistiken</h3><img src="images/arrow2.png" alt="arrow" id="arrowswitchimg" @click="toggleMoreInfo">
+                        <p id="hiddenblockinburger">
+                            Datan hämtas från Sveriges Radios <a href="https://sverigesradio.se/api/documentation/v2/index.html" id="linkdecoration" target="_blank">API &#x2197;</a>
                         </p>
-                    </span>
                 </div>
                 
                 <ul class="alternatives merinfo">
-                    <li>Lyssna på Radio</li>
                     <a href="aboutus.html"><li>Om Oss</li></a>
                 </ul>
                 
@@ -53,35 +47,66 @@
         </div>
         
         <div class="scroller">
+
             <section id="main" class="pagelayout">
                 <div class="header"><h1>RadioStats</h1></div>
-                <span id="top">
-                    Hej och välkommen till RadioStats!<p id="secondtop">Här finns visualiseringar av data från Sveriges radio. Lek runt med statistiken för att lära dig mer.</p>
+                <span id="topspan">
+                    Hej och välkommen till RadioStats!
                 </span>
-                <span id="bottom">
+                <p id="marginfromtopspan">Här finns statistik från Sveriges radio.</p>
+
+                <div class="barsonmainpage">
+                    <div class="bars" id="bar1"></div>
+                    <div class="bars" id="bar2"></div>
+                    <div class="bars" id="bar3"></div>
+                </div>
+                
+                <span id="bottomspan">
                     Swipa ner för att börja
                 </span>
                 <img src="images/arrow2.png" alt="arrow" id="mainpageimg">
             </section>
 
-            <section class="pagelayout">
+            <section class="pagelayout" id="olycksstatistik">
                 <div class="header"><h1>Olycksstatistik</h1><div class="topinfobutton">i</div></div>
 
                 <div id="layoutinaccidents">
                     <div class="barsoncrashes">
+                        <div class="trafikstatistik">
+                            <h3>Vägtrafik</h3>
+                            <div class="barsintrafik purple"></div>
+                            <div class="barsintrafik orange"></div>
+                            <div class="barsintrafik green"></div>
+                            <div class="barsintrafik red"></div>
+                        </div>
+                        <div class="trafikstatistik">
+                            <h3>Kollektivtrafik</h3>
+                            <div class="barsintrafik purple"></div>
+                            <div class="barsintrafik orange"></div>
+                            <div class="barsintrafik green"></div>
+                            <div class="barsintrafik red"></div>
+                        </div>
+                        <div class="trafikstatistik">
+                            <h3>Övrigt</h3>
+                            <div class="barsintrafik purple"></div>
+                            <div class="barsintrafik orange"></div>
+                            <div class="barsintrafik green"></div>
+                            <div class="barsintrafik red"></div>
+                        </div>
 
+                        
                     </div>
 
                     <div class="buttoncontainer">
                         <div class="buttons">
-                            <input type="checkbox" class="btn" id="goteborg">
-                            <label for="goteborg" class="textforcheckbox">Göteborg</label>
+                            <input type="checkbox" class="btn" id="stockholm">
+                            <label for="stockholm" class="textforcheckbox">Stockholm</label>
                             <input type="checkbox" class="btn" id="malmo">
                             <label for="malmo" class="textforcheckbox">Malmö</label>
                         </div>
                         <div class="buttons">
-                            <input type="checkbox" class="btn" id="stockholm">
-                            <label for="stockholm" class="textforcheckbox">Stockholm</label>
+                            <input type="checkbox" class="btn" id="goteborg">
+                            <label for="goteborg" class="textforcheckbox">Göteborg</label>
                             <input type="checkbox" class="btn" id="umea">
                             <label for="umea" class="textforcheckbox">Umeå</label>
                         </div>
@@ -90,11 +115,11 @@
 
             </section>
 
-            <section class="pagelayout">
+            <section class="pagelayout" id="trafikstörning">
                 <div class="header"><h1>Trafikstörning</h1><div class="topinfobutton">i</div></div>
             </section>
 
-            <section class="pagelayout">
+            <section class="pagelayout" id="dokumentärer">
                 <div class="header"><h1>Dokumentärer</h1><div class="topinfobutton">i</div></div>
             </section>
             
