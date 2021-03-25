@@ -6,288 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
+    <script src="https://unpkg.com/vue@3.0.5"></script>
+    <script defer src="olyckscript.js"></script>
     <style>
 
-.container {
-  width: 100vw;
-  height:20vh;
-}
 
-.box {
-  width: 0vw;
-  height: 20vh;
-  transition-duration: 0.7s;
-  transition-property: width;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-.three {
-  background: #9CEAEF;
-  transition-timing-function: ease-out;
-}
-#checkbo{
-    width: 5vw;
-    height: 5vh;
-}
-#test {
-    width: 50vw;
-    height: 10vh; 
-    background-color: green;
-}
-.floatleft{
-    float: left;
-}
     </style>
 </head>
 <body>
     
 
-
-
-
-
-
-
-
-
-    
     <section id="app">
         
         <div class="container">
-            <div id="enlarge" class="box three floatleft"></div> <div v-if = "outAndIn">{{ goteborgRoad.length }}</div>
+            <div id="goteborgroad" class="box three floatleft goteborgbox"></div> <div v-if = "outAndInGoteborg">{{ goteborgRoad.length }}</div>
+            <div id="malmoroad" class="box three floatleft malmobox"></div> <div v-if = "outAndInMalmo">{{ malmoRoad.length }}</div>
+            <div id="sthlmroad" class="box three floatleft sthlmbox"></div> <div v-if = "outAndInSthlm">{{ sthlmRoad.length }}</div>
+            <div id="kalmarroad" class="box three floatleft kalmarbox"></div> <div v-if = "outAndInKalmar">{{ kalmarRoad.length }}</div>
         </div>
 
-        <div @click="changeWidth">
-            <input type="checkbox" id="checkbo">
+        <div class="container">
+            <div id="goteborgkollektiv" class="box three floatleft goteborgbox"></div> <div v-if = "outAndInGoteborg">{{ goteborgKollektiv.length }}</div>
+            <div id="malmokollektiv" class="box three floatleft malmobox"></div> <div v-if = "outAndInMalmo">{{ malmoKollektiv.length }}</div>
+            <div id="sthlmkollektiv" class="box three floatleft sthlmbox"></div> <div v-if = "outAndInSthlm">{{ sthlmKollektiv.length }}</div>
+            <div id="kalmarkollektiv" class="box three floatleft kalmarbox"></div> <div v-if = "outAndInKalmar">{{ kalmarKollektiv.length }}</div>
         </div>
+
+        <div class="container">
+            <div id="goteborgovrigt" class="box three floatleft goteborgbox"></div> <div v-if = "outAndInGoteborg">{{ goteborgOvrigt.length }}</div>
+            <div id="malmoovrigt" class="box three floatleft malmobox"></div> <div v-if = "outAndInMalmo">{{ malmoOvrigt.length }}</div>
+            <div id="sthlmovrigt" class="box three floatleft sthlmbox"></div> <div v-if = "outAndInSthlm">{{ sthlmOvrigt.length }}</div>
+            <div id="kalmarovrigt" class="box three floatleft kalmarbox"></div> <div v-if = "outAndInKalmar">{{ kalmarOvrigt.length }}</div>
+        </div>
+
 
         
-
-
-
-
-
-
-
-
-
-
-
+    <div id="move">
+        <div>
+            <input type="checkbox" id="checkbo" class="a" @click="changeWidth(this.goteborgRoad, this.goteborgKollektiv, this.goteborgOvrigt, 'goteborgroad', 'goteborgkollektiv', 'goteborgovrigt')">göteborg
+        </div>
+        <div>
+            <input type="checkbox" id="checkmalmo" class="a"  @click="changeWidth(this.malmoRoad, this.malmoKollektiv, this.malmoOvrigt, 'malmoroad', 'malmokollektiv', 'malmoovrigt')">malmö
+        </div>
+        <div>
+            <input type="checkbox" id="checksthlm" class="a" @click="changeWidth(this.sthlmRoad, this.sthlmKollektiv, this.sthlmOvrigt, 'sthlmroad', 'sthlmkollektiv', 'sthlmovrigt')">Stockholm
+        </div>
+        <div>
+            <input type="checkbox" id="checkkalmar" class="a" @click="changeWidth(this.kalmarRoad, this.kalmarKollektiv, this.kalmarOvrigt, 'kalmarroad', 'kalmarkollektiv', 'kalmarovrigt')">Kalmar
+        </div>
+    </div>
 
 
     </section>
-    <script>
-        
-     /*   fetch("http://api.sr.se/api/v2/traffic/messages?format=json")
-    .then(response => response.json())
-    .then(json => console.log(json.pagination.totalpages))
-        
-    let goteborgRoad = []
-    let goteborgKollektiv = []
-    let goteborgOvrigt = []
-    let malmoRoad = []
-    let malmoKollektiv = []
-    let malmoOvrigt = []
-    let sthlmRoad = []
-    let sthlmKollektiv = []
-    let sthlmOvrigt = []
-    let kalmarRoad = []
-    let kalmarKollektiv = []
-    let kalmarOvrigt = []
-    */
-    
-    
-    
-           
-            
-            async function fetching(url){
-                response = await fetch(url)
-                let json = await response.json()
-                return json
-            }
-            
-            
 
-                
-    
-    
-
-
-    
-    
-
-    /*fetch("http://api.sr.se/api/v2/traffic/messages?format=json")
-    .then(response => response.json())
-    .then(json => console.log(json))
-    .then(json => {for(test of json.messages){
-        console.log(test)
-     }
-    })*/
-
-    </script>
-
-<script src="https://unpkg.com/vue@3.0.5"></script>
 <script>
-    const app = {
-        data() {
-            return {
-                goteborgRoad: [],
-                goteborgKollektiv: [],
-                goteborgOvrigt: [],
-                malmoRoad: [],
-                malmoKollektiv: [],
-                malmoOvrigt: [],
-                sthlmRoad: [],
-                sthlmKollektiv: [],
-                sthlmOvrigt: [],
-                kalmarRoad: [],
-                kalmarKollektiv: [],
-                kalmarOvrigt: [],
-                outAndIn: false,
-            }
-        },
-        mounted(){
-            this.test()
-        },
-        methods: {
-            
-            async test() {
-                let json = await fetching("http://api.sr.se/api/v2/traffic/messages?format=json")
 
-                for(let i = 1; i<=json.pagination.totalpages; i++)
-                {
-                    let jsonmessage = await fetching("http://api.sr.se/api/v2/traffic/messages?format=json&page=" + i)
-                    for(message of jsonmessage.messages)
-                    {
-                        let latitude = message.latitude
-                        let longitude = message.longitude
-                        if(message.category === 0)
-                        {
-                            if(message.latitude < 57.973157 && message.longitude > 11.497966 && message.latitude > 57.581553 && message.longitude < 12.287186){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Göteborg")
-                                {
-                                    this.goteborgRoad.push(message)
-                                }
-    
-                            }
-                            else if(message.latitude < 55.700188 && message.longitude > 12.855355 && message.latitude > 55.503128 && message.longitude < 13.212649){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Malmöhus")
-                                {
-                                    this.malmoRoad.push(message)
-                                }
-                            }
-                            else if(message.latitude < 59.494188 && message.longitude > 17.541020 && message.latitude > 58.937539 && message.longitude < 18.783304){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Stockholm")
-                                {
-                                    this.sthlmRoad.push(message)
-                                }
-                            }
-                            else if(message.latitude < 56.760101 && message.longitude > 16.168582 && message.latitude > 56.586868 && message.longitude < 16.405230){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Kalmar")
-                                {
-                                    this.kalmarRoad.push(message)
-                                }
-                            }
-                        }
-                        else if(message.category === 1)
-                        {
-                            if(message.latitude < 57.973157 && message.longitude > 11.497966 && message.latitude > 57.581553 && message.longitude < 12.287186){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Göteborg")
-                                {
-                                    this.goteborgKollektiv.push(message)
-                                }
-    
-                            }
-                            else if(message.latitude < 55.700188 && message.longitude > 12.855355 && message.latitude > 55.503128 && message.longitude < 13.212649){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Malmöhus")
-                                {
-                                    this.malmoKollektiv.push(message)
-                                }
-                            }
-                            else if(message.latitude < 59.494188 && message.longitude > 17.541020 && message.latitude > 58.937539 && message.longitude < 18.783304){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Stockholm")
-                                {
-                                    this.sthlmKollektiv.push(message)
-                                }
-                            }
-                            else if(message.latitude < 56.760101 && message.longitude > 16.168582 && message.latitude > 56.586868 && message.longitude < 16.405230){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Kalmar")
-                                {
-                                    this.kalmarKollektiv.push(message)
-                                }
-                            }
-                        }
-                        else if(message.category === 3)
-                        {
-                            if(message.latitude < 57.973157 && message.longitude > 11.497966 && message.latitude > 57.581553 && message.longitude < 12.287186){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Göteborg")
-                                {
-                                    this.goteborgOvrigt.push(message)
-                                }
-    
-                            }
-                            else if(message.latitude < 55.700188 && message.longitude > 12.855355 && message.latitude > 55.503128 && message.longitude < 13.212649){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Malmöhus")
-                                {
-                                    this.malmoOvrigt.push(message)
-                                }
-                            }
-                            else if(message.latitude < 59.494188 && message.longitude > 17.541020 && message.latitude > 58.937539 && message.longitude < 18.783304){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Stockholm")
-                                {
-                                    this.sthlmOvrigt.push(message)
-                                }
-                            }
-                            else if(message.latitude < 56.760101 && message.longitude > 16.168582 && message.latitude > 56.586868 && message.longitude < 16.405230){
-                                let location = await fetching("http://api.sr.se/api/v2/traffic/areas?format=json&latitude=" + latitude + "&longitude=" + longitude)
-                                if(location.area.name = "Kalmar")
-                                {
-                                    this.kalmarOvrigt.push(message)
-                                }
-                            }
-                        }
-                    }
-                }
-                
-            },
-            changeWidth(){
-                
-                if(!this.outAndIn){
-                    
-                    document.getElementById("enlarge").style.width = (5*this.goteborgRoad.length)+"vw"
-
-                }else{
-
-                    document.getElementById("enlarge").style.width = "0vw"
-                    
-
-                }
-                this.outAndIn = !this.outAndIn
-                
-            }
-
-
-        }
-    }
-        
-        
-    
-
-Vue.createApp(app).mount("#app")
 </script>
 </body>
 </html>
