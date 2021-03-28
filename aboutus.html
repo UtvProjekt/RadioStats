@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/vue@3.0.5" integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <!--BURGER MENU, MOBILE ONLY-->
     <div id="app">
         
         <div class="item menu" v-bind:class="{close: menuClose}" @click="toggleMenuIcon">
@@ -28,19 +28,31 @@
                     <li><a href="index.html">Home Page</a></li>
                 </ul>
                 
-                <ul class="alternatives merinfo">
+                <ul class="omoss">
                     <li>Lyssna på Radio</li>
                 </ul>
                 
             </div>
-            
-            
-        </div>
-        
-        <div class="scroller">
-            <div class="pagelayoutaboutus" id="removeborder">
-                <div class="header"><h1>Om Oss</h1></div>
+            <div id="clickawayfromburger" @click="toggleMenuIcon">
 
+            </div>
+        </div>
+        <!--MAIN ABOUT US PAGE-->
+        
+            <div class="pagelayoutaboutus">
+
+                <div class="header"><a href="index.html"><img src="images/logotype.svg" alt="logotype" class="logotypesize"></a>
+                <nav class="navbarforpc">
+                    <ul class="removelistdecoration">
+                        <li><a href="index.html">Trafikstatistik</a></li>
+                        <li><a href="#trafikstörning">Trafikhändelser</a></li>
+                        <li><a href="#dokumentärer">Program</a></li>
+                    </ul>
+                </nav>
+                <a href="aboutus.html" class="omosspc boldonwhatpage">
+                    Om Oss
+                </a>
+            </div>
                 <div class="textaboutus">
                     <h3>Team BabyBlue</h3>
                     <p class="enableborderbottom">Vi är några blalalalalal</p> 
@@ -50,25 +62,25 @@
 
                     <div class="profiletitles"><h3>UX</h3></div>
                     <div class="profiletitles"><h3>Utvecklare</h3></div>
-                    <div class="pictures"><img src="images/feelsdankman.jfif" alt="231" class="profilepicture"></div>
-                    <div class="pictures"><img src="images/monkaU.png" alt="231" class="profilepicture"></div>
-                    <div class="name">test</div>
-                    <div class="name">test</div>
-                    <div class="pictures"><img src="images/BOOBA.gif" alt="231" class="profilepicture"></div>
-                    <div class="pictures"><img src="images/rank1.jpg" alt="231" class="profilepicture"></div>
-                    <div class="name">test</div>
-                    <div class="name">test</div>
-                    <div class="pictures"><img src="images/modCheck.gif" alt="231" class="profilepicture"></div>
-                    <div class="pictures"><img src="images/Sadge.png" alt="231" class="profilepicture"></div>
-                    <div class="name">test</div>
-                    <div class="name">test</div>
-                    <div class="pictures"><img src="images/HYPERS.jpg" alt="231" class="profilepicture"></div>
-                    <div class="pictures invisible"></div>
-                    <div class="name">test</div>
-                    <div class="name"></div>
+                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="name1">Malin Bjelle</div>
+                    <div class="name2">Anton Ewards</div>
+                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="name1">Oliwer Hägglund</div>
+                    <div class="name2">Oscar Jonasson</div>
+                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="name1">Fadi Tobela</div>
+                    <div class="name2">Sebastian Petersson</div>
+                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures invisiblebackground"></div>
+                    <div class="name1">Julia Palstam</div>
+                    <div class="name2"></div>
                 </div>
 
             </div>
-        </div>
+        
         </body>
         </html>

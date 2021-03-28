@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 /* Global settings */
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Hind Guntur', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: #1A1A1A;
 }
 
 p{
@@ -13,8 +15,7 @@ p{
 
 a{
     text-decoration: none;
-    color: black;
-    font-size: 6vw;
+    
 }
 
 .green{
@@ -38,17 +39,24 @@ a{
     background-color: rgb(240, 240, 240);
 }
 
+.removelogomobile{
+    display: none;
+}
+
 .header{
     position: sticky;
     background-color: white;
     top: 0;
     height: 10vh;
     width: 100vw;
-    padding-top: 1.5vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    color: black;
+}
+
+.logotypesize{
+    width: 34vw;
+    padding-top: 1vh;
 }
 
 .scroller {
@@ -79,7 +87,7 @@ a{
 
 #linkdecoration{
     text-decoration: underline;
-    color: rgb(40, 40, 255);
+    color: rgb(40, 62, 255);
     font-size: 4vw;
 }
 
@@ -92,21 +100,37 @@ a{
     border-bottom: 1vw solid black;
 }
 
-/*REPLACE WITH IMAGE LATER*/
-.topinfobutton{
+.infobutton{
     position: absolute;
-    background-color: rgb(0, 0, 0);
-    color: #fff;
-    border-radius: 50%;
     width: 9.6vw;
-    padding-top: 0.1vh;
-    height: 5.5vh;
-    text-align: center;
-    font-size: 6vw;
-    font-weight: bold;
-    right: 10vw;
+    right: 9vw;
     top: 2.5vh;
 }
+
+.showinfomessage{
+    position: absolute;
+    display: none;
+    width: 60vw;
+    height: 13vh;
+    top: 11vh;
+    font-size: 4vw;
+    left: 38vw;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 0.5vw dotted black;
+    z-index: 999;
+    transition: display 0.3s linear;
+}
+
+#buttonInfo1:focus + #infomessage1{
+    display: block;
+}
+#buttonInfo2:focus + #infomessage2{
+    display: block;
+}
+#buttonInfo3:focus + #infomessage3{
+    display: block;
+}
+
 /*Starting Page*/
 #main{
     display: flex;
@@ -116,11 +140,6 @@ a{
 
 #main > span{
     text-align: center;
-}
-
-.pagelayoutaboutus{
-    height: none;
-    background-color: rgb(255, 255, 255);
 }
 
 .barsonmainpage{
@@ -163,9 +182,15 @@ a{
     margin-top: 16vh;
 }
 #marginfromtopspan{
-    margin-top: 2vh;
+    margin-top: 6vh;
     font-size: 4.5vw;
 }
+
+#mainpageimg{
+    width: 8vw;
+    margin-top: 1vh;
+}
+
 
 /*Hamburger Menu (Side menu)*/
 .display{
@@ -176,17 +201,22 @@ a{
     justify-content: space-around;
     background-color: rgb(122, 115, 115);
     height: 100vh;
-    width: 80vw;
+    width: 70vw;
     z-index: 1;
     transition: all .5s ease-in-out; 
 }
 
-#mainpageimg{
-    width: 8vw;
-}
-
 #showmenu{
     left: -100vw;
+}
+
+#clickawayfromburger{
+    position: absolute;
+    width: 30vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    right: -50vw;
+    transition: right 0.7s ease-out;
 }
 
 .hiddenheader{
@@ -197,25 +227,24 @@ a{
 }
 
 .alternatives{
-    margin-bottom: 10vh;
-    margin-left: 5vw;
+    margin-bottom: 60vh;
+    margin-left: 6vw;
+    height: 22vh;
     list-style-type: none;
-}
-
-.alternatives > li{
-    font-size: 6vw;
-}
-
-.middlesectioninburger{
-    width: 70vw;
-    margin-bottom: 6.3vh;
-    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 5.5vw;
 }
 
 #hiddenblockinburger {
+    position: absolute;
+    left: 6vw;
+    top: 52%;
     visibility: hidden;
-    border-top: 0.7vw dotted black;
-    width: 50vw;
+    width: 52vw;
+    border-top: .7vw dotted black;
+    font-size: 4vw;
 }
 
 #arrowswitchimg{
@@ -227,12 +256,23 @@ a{
     transition: transform .3s;    
 }
 
-#arrowswitchimg:focus{
-    transform: rotate(180deg);
+#newwindowimage{
+    width: 3.5vw;
+    margin-left: 1vw;
 }
 
-.merinfo{
-    margin-top: 10vh;
+.titlemoreinfo{
+    position: absolute;
+    top: 47.8%;
+    left: 6vw;
+}
+
+.omoss{
+    position: absolute;
+    list-style-type: none;
+    bottom: 4vh;
+    left: 6vw;
+    font-size: 4.5vw;
 }
 
 span > h3{
@@ -283,6 +323,9 @@ span > h3{
 }
 
 /*Om Oss Sidan*/
+.pagelayoutaboutus{
+    background-color: rgb(255, 255, 255);
+}
 
 .aboutusheader{
     position: fixed;
@@ -303,7 +346,6 @@ span > h3{
 .pictures{
     width: 36vw;
     height: 20vh;
-    background-color: green;
     border: 1vw solid black;
     border-radius: 50%;
 }
@@ -313,10 +355,14 @@ span > h3{
     border: none;
 }
 
-.name{
-    width: 40vw;
+.name1{
+    width: 44vw;
     text-align: center;
-    
+    margin-right: -8vw;
+}
+.name2{
+    width: 44vw;
+    text-align: center;
 }
 
 .textaboutus{
@@ -349,7 +395,8 @@ span > h3{
 
 .barsoncrashes{
     width: 90vw;
-    height: 70vh;
+    height: 80vh;
+    
 }
 
 .trafikstatistik{
@@ -358,14 +405,20 @@ span > h3{
     padding: 2vh 3vw;
     border-bottom: 0.6vw solid black;
     border-left: 0.6vw solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+   
 }
 
 .barsintrafik{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
     height: 2.5vh;
     width: 0vw;
+    transition-duration: 0.7s;
+    transition-property: width;
+    transition-timing-function: ease-out;
+   
 }
 
 .buttoncontainer{
@@ -390,7 +443,7 @@ span > h3{
     border: none;
 }
 
-#umea:checked{
+#kalmar:checked{
     background-color: #CF3746;
 }
 
@@ -415,6 +468,129 @@ span > h3{
     content: '\2714';
 }
 
+.marginfrombars{
+    padding-left: 5vw;
+}
+
+#mainspanpc{
+    display: none;
+}
+
+.navbarforpc{
+    display: none;
+}
+
+.omosspc{
+    display: none;
+}
 
 
+/*FOR PC AND BIGGER SCREENS ONLY*/
+
+@media screen and (min-width: 1000px){
+    /*GLOBAL FOR PC*/
+    .borderleftondescription{
+        border-left: 0.5vw solid #6B9EB8;
+        padding-left: 1vw;
+    }
+    .logotypesize{
+        width: 8vw;
+        padding-top: 0.5vh;
+    }
+
+    .removelogomobile{
+        display: block;
+    }
+
+    /*MAIN PAGE*/
+    .item{
+        display: none;
+    }
+
+    .bars{
+        display: none;
+    }
+    
+    #bottomspan{
+        display: none;
+    }
+    
+    #topspan{
+        display: none;
+    }
+
+    #marginfromtopspan{
+        display: none;
+    }
+    
+    #mainpageimg{
+        display: none;
+    }
+
+    #clickawayfromburger{
+        display: none;
+    }
+
+    .titlesmobile{
+        display: none;
+    }
+    
+    .linkinfobuttons{
+        display: none;
+    }
+
+    .boldonwhatpage{
+        font-weight: bold;
+    }
+
+    #mainspanpc{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 26vh;
+        width: 16vw;
+        margin-top: 21vh;
+        margin-left: 8vw;
+    }
+
+    #mainspanpc p{
+        font-size: 1vw;
+        text-align: left;
+    }
+
+    .titlepc{
+        font-size: 1.5vw;
+        text-align: left;
+    }
+
+    .header{
+        height: 8vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2vw;
+    }
+
+    .navbarforpc{
+        display: block;
+    }
+
+    .navbarforpc ul{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        width: 25vw;
+        font-size: 0.9vw;
+    }
+
+    .omosspc{
+        display: block;
+
+    }
+
+    #main{
+        display: block;
+    }
+
+}
 
