@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafiksstatistik</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script defer src="olyckscript.js"></script>
+    <script src="https://unpkg.com/vue@3.0.5" integrity="sha384-0k9//QJdpmfSdp5IK3oJjOYPfz42f2FE0goMLtK9Vq7aKllvc4Lnz7lHPHiFhvDP" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="pagelayout">
+        <div class="header">
+            <a href="index.html" class="logonotindexpage"><img src="images/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
+            
+            <!--PC NAVBAR-->
+            <nav class="navbarforpc">
+                <ul class="removelistdecoration">
+                    <li class="boldonwhatpage"><a href="trafikstatistik.html" class="navbarhover">Trafikstatistik</a></li>
+                    <li><a href="trafikhandelser.html" class="navbarhover">Trafikhändelser</a></li>
+                    <li><a href="program.html" class="navbarhover">Program</a></li>
+                </ul>
+            </nav>
+
+            <a href="aboutus.html" class="omosspc navbarhover">
+                Om Oss
+            </a>
+        </div>
+        <!--PC DESCRIPTION-->
+        <span class="leftdescription leftspan2pc">
+            <h1 class="titlepc">Trafikstatistik</h1>
+            <p>Jämför trafikhändelser mellan städer.</p>
+        </span>
+
+        <div class="rightlayoutpc notindexpages">
+            <!--Slide out statestik för trafikstatistik(PC)-->
+            
+            
+            <div id="layoutinaccidents">
+            <!--Knappar för trafikstatistik-->
+            <div class="buttoncontainer">
+                <div class="buttons">
+                    <input type="checkbox" class="btn" id="stockholm" @click="changeWidth(this.sthlmRoad, this.sthlmKollektiv, this.sthlmOvrigt, 'sthlmroad', 'sthlmkollektiv', 'sthlmovrigt')">
+                    <input type="checkbox" class="btn" id="goteborg" @click="changeWidth(this.goteborgRoad, this.goteborgKollektiv, this.goteborgOvrigt, 'goteborgroad', 'goteborgkollektiv', 'goteborgovrigt')">
+                    <input type="checkbox" class="btn" id="malmo" @click="changeWidth(this.malmoRoad, this.malmoKollektiv, this.malmoOvrigt, 'malmoroad', 'malmokollektiv', 'malmoovrigt')">
+                </div>
+                <div class="buttons">
+                    <label for="stockholm" class="textforcheckbox">Stockholm</label>
+                    <label for="goteborg" class="textforcheckbox">Göteborg</label>
+                    <label for="malmo" class="textforcheckbox">Malmö</label>
+                </div>
+            </div>
+            <div class="statistics">
+                
+            </div>
+                <div class="barsoncrashes">
+                    <h3 class="rotatenormal layunder">Vägtrafik</h3>
+                    <div class="trafikstatistik">
+                            <div id="sthlmroad" class="barsintrafik purple"><div v-if = "outAndInSthlm" class="amountinbars">{{ sthlmRoad.length }}</div></div> 
+                            <div id="goteborgroad" class="barsintrafik orange"><div v-if = "outAndInGoteborg" class="amountinbars">{{ goteborgRoad.length }}</div></div> 
+                            <div id="malmoroad" class="barsintrafik green"><div v-if = "outAndInMalmo" class="amountinbars">{{ malmoRoad.length }}</div></div>
+                            
+                    </div>
+                    <h3 class="rotatenormal layunder">Kollektivtrafik</h3>
+                    <div class="trafikstatistik">
+                            <div id="sthlmkollektiv" class="barsintrafik purple"><div v-if = "outAndInSthlm" class="amountinbars">{{ sthlmKollektiv.length }}</div></div> 
+                            <div id="goteborgkollektiv" class="barsintrafik orange"><div v-if = "outAndInGoteborg" class="amountinbars">{{ goteborgKollektiv.length }}</div></div> 
+                            <div id="malmokollektiv" class="barsintrafik green"><div v-if = "outAndInMalmo" class="amountinbars">{{ malmoKollektiv.length }}</div></div> 
+                        
+                    </div>
+                    <h3 class="rotatenormal layunder">Övrigt</h3>
+                    <div class="trafikstatistik">
+                            <div id="sthlmovrigt" class="barsintrafik purple"><div v-if = "outAndInSthlm" class="amountinbars">{{ sthlmOvrigt.length }}</div></div> 
+                            <div id="goteborgovrigt" class="barsintrafik orange"><div v-if = "outAndInGoteborg" class="amountinbars">{{ goteborgOvrigt.length }}</div></div>
+                            <div id="malmoovrigt" class="barsintrafik green"><div v-if = "outAndInMalmo" class="amountinbars">{{ malmoOvrigt.length }}</div></div>
+                    </div>
+                </div>
+            
+            </div>
+
+
+                <!--Knappar för trafikstatistik-->
+                
+            </div>
+            
+        </div>
+        
+
+    </section>
+</body>
+</html>

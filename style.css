@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 /* Global settings */
+
+:root{
+    --orange: 
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
     color: #1A1A1A;
+}
+
+body{
+    overflow-x: hidden;
 }
 
 p{
@@ -59,30 +68,30 @@ a{
     padding-top: 1vh;
 }
 
-.scroller {
+#scroller {
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
 
-.scroller section {
+#scroller section {
     scroll-snap-align: start;
 }
 
 .btn{
+    -moz-default-apperance: none;
+    -o-appearance: none;
     -webkit-appearance: none;
-    font-size: 7.6vw;
-    font-weight: bold;
-    width: 12vw;
-    height: 6.6vh;
+    width: 14vw;
+    height: 7.6vh;
     background-color: white;
-    display: flex;
-    margin-left: 4vw;
-    justify-content: center;
+    margin-left: 9vw;
     border-radius: 20%;
-    border: 1.5vw solid rgba(100, 100, 100, 0.6);
+    border: 1vw solid rgba(100, 100, 100, 0.6);
     transition: all 0.2s ease-in-out;
+    box-shadow: 0 0.5vw 1vw 0.11vw rgba(1, 1, 1, 0.9);
 }
 
 #linkdecoration{
@@ -118,7 +127,6 @@ a{
     background-color: rgba(255, 255, 255, 0.8);
     border: 0.5vw dotted black;
     z-index: 999;
-    transition: display 0.3s linear;
 }
 
 #buttonInfo1:focus + #infomessage1{
@@ -155,17 +163,17 @@ a{
     width: 8vw;
 }
 
-#bar1{
+.bar1{
     height: 12vh;
     background-color: rgba(139, 36, 187, 0.85);
 }
 
-#bar2{
+.bar2{
     height: 16vh;
     background-color: rgb(207, 116, 31);
 }
 
-#bar3{
+.bar3{
     height: 20vh;
     background-color: rgba(25, 119, 16, 0.7);
 }
@@ -201,8 +209,9 @@ a{
     justify-content: space-around;
     background-color: rgb(122, 115, 115);
     height: 100vh;
-    width: 70vw;
+    width: 78vw;
     z-index: 1;
+    filter: blur(0);
     transition: all .5s ease-in-out; 
 }
 
@@ -211,12 +220,13 @@ a{
 }
 
 #clickawayfromburger{
-    position: absolute;
-    width: 30vw;
+    position: fixed;
+    width: 22vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    right: -50vw;
-    transition: right 0.7s ease-out;
+    right: -30vw;
+    background-color: transparent;
+    transition: all .5s ease-in-out;
+    z-index: 10;
 }
 
 .hiddenheader{
@@ -324,7 +334,9 @@ span > h3{
 
 /*Om Oss Sidan*/
 .pagelayoutaboutus{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(240, 240, 240);
+    height: unset;
+    width: 100vw;
 }
 
 .aboutusheader{
@@ -383,6 +395,10 @@ span > h3{
     font-weight: bold;
 }
 
+.profiletitlespc{
+    display: none;
+}
+
 /*2nd Page*/
 #layoutinaccidents{
     display: flex;
@@ -394,45 +410,50 @@ span > h3{
 }
 
 .barsoncrashes{
-    width: 90vw;
+    width: 80vw;
     height: 80vh;
-    
 }
 
 .trafikstatistik{
     width: inherit;
-    height: 22vh;
-    padding: 2vh 3vw;
-    border-bottom: 0.6vw solid black;
-    border-left: 0.6vw solid black;
-   
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: -10vw;
 }
 
 .barsintrafik{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    float: left;
-    height: 2.5vh;
-    width: 0vw;
-    transition-duration: 0.7s;
-    transition-property: width;
-    transition-timing-function: ease-out;
-   
+    justify-content: flex-end;
+    height: 4vh;
+    width: 2.5vw;
+    transition: width 0.6s ease-out;
 }
 
 .buttoncontainer{
     width: 100vw;
-    height: 22vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
+    margin-top: -1vh;
 }
 
 .buttons{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    width: 46vw;
+    justify-content: space-around;
+    width: 86vw;
+    margin-right: 6vw;
+    
+}
+
+.amountinbars{
+    height: 4vh;
+    width: 4vw;
+    margin-left: 2vw;
+    background-color: rgb(240, 240, 240);
 }
 
 .btn:focus{
@@ -441,6 +462,19 @@ span > h3{
 
 .btn:checked{
     border: none;
+    box-shadow: none;
+}
+
+.btn:checked::after{
+    content: "";
+    background-image: url("images/checkmark.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 7vh;
+    width: 8vw;
+    margin-left: 2.8vw;
+    margin-top: 0.3vh;
 }
 
 #kalmar:checked{
@@ -460,19 +494,16 @@ span > h3{
 }
 
 .textforcheckbox{
-    font-size: 5vw;
+    font-size: 5.5vw;
     margin-left: 3vw;
-}
-
-.btn:checked::before{
-    content: '\2714';
+    margin-top: -5vh;
 }
 
 .marginfrombars{
     padding-left: 5vw;
 }
 
-#mainspanpc{
+.leftdescription{
     display: none;
 }
 
@@ -484,30 +515,393 @@ span > h3{
     display: none;
 }
 
+.textundershapes{
+    display: none;
+}
+
+.mainpcshapes{
+    display: none;
+}
+
+.picturesaboutuspc{
+    display: none;
+}
+
+.namesaboutuspc{
+    display: none;
+}
 
 /*FOR PC AND BIGGER SCREENS ONLY*/
 
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 700px){
     /*GLOBAL FOR PC*/
-    .borderleftondescription{
+   
+    .leftdescription{
         border-left: 0.5vw solid #6B9EB8;
         padding-left: 1vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 17vw;
+        margin-top: 21vh;
+        margin-left: 5vw;
     }
+
+    .leftdescription p{
+        font-size: 1vw;
+        text-align: left;
+    }
+
     .logotypesize{
         width: 8vw;
         padding-top: 0.5vh;
     }
-
+    
     .removelogomobile{
         display: block;
     }
-
-    /*MAIN PAGE*/
-    .item{
-        display: none;
+    
+    .boldonwhatpage{
+        font-weight: bold;
+        font-size: 0.9vw;
+    }
+    
+    .rightlayoutpc{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 84vh;
+        width: 67vw;
+        border-left: 0.25vw dotted black;
+        margin-left: 30vw;
+        margin-top: -42vh;
+        overflow-x: hidden;
+    }
+    
+    .notindexpages{
+        margin-top: -30vh;
+    }
+    
+    .logonotindexpage{
+        margin-bottom: 1.4vh;
+        height: 2.4vh;
+    }
+    
+    .titlepc{
+        font-size: 1.5vw;
+        text-align: left;
+    }
+    
+    .header{
+        height: 8vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2vw;
+    }
+        
+    .navbarforpc{
+        display: block;
     }
 
+    .navbarhover:hover{
+        border-bottom: 0.1vw solid black;
+    }
+    
+    .omosspc{
+        display: block;
+    }
+    
+    #main{
+        display: block;
+    }
+    
+    .mainpcshapes{
+        display: block;
+    }
+    
+    .normalflex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #linkdecoration{
+        font-size: 1vw;
+    }
+    
+    
+    /*MAIN PAGE*/
+    .mainpcshapes{
+        width: 20vw;
+        height: 10vh;
+        text-align: center;
+    }
+    
+    .textundershapes{
+        display: block;
+        margin-top: -38vh;
+        margin-right: 1vw;
+        font-size: 1vw;
+    }
+    
+    #leftspanpc{
+        height: 26vh;
+    }
+    
+    .leftspan2pc{
+        height: 14vh;
+    }
+    
+    .navbarforpc ul{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        width: 25vw;
+        font-size: 0.9vw;
+    }
+
+    .layingbars{
+        transform: rotate(90deg);
+        margin-top: 4.4vh;
+    }
+    
+    .bar1{
+        height: 10vh;
+    }
+    
+    .bar2{
+        width: 2vw;
+    }
+    
+    .bar3{
+        height: 22vh;
+    }
+    
     .bars{
+        width: 2vw;
+    }
+    
+    .barsonmainpagepc{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-around;
+        width: 8vw;
+        height: 20vh;
+        margin-left: 6vw;
+    }
+    .circlebox{
+        margin-top: 1vh;
+        width: 3vw;
+        height: 6vh;
+        border-radius: 5vw;
+    }
+    /*OM OSS PAGE PC*/
+    .pagelayoutaboutus{
+        height: 100vh;
+    }
+
+    .rightlayoutaboutuspc{
+        position: relative;
+        bottom: 15.4vh;
+        left: 30vw;
+        padding-left: 20vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 84vh;
+        width: 50vw;
+        border-left: 0.25vw dotted black;
+    }
+
+    .pictureswithtext1{
+        position: relative;  
+        top: 2vh; 
+    }   
+
+    .pictureswithtext2{
+        position: relative;
+        bottom: 14vh;
+    }
+
+    .picturesaboutuspc{
+        width: 40vw;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .namesaboutuspc{
+        width: 40vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .pictures{
+        width: 9.5vw;
+        height: 18.85vh;
+        border: .2vw solid black;
+        border-radius: 50%;
+    }
+    
+    .name{
+        width: 10vw;
+        text-align: center;
+    }
+    
+    .invisiblebackground{
+        background-color: transparent;
+        border: none;
+    }
+    
+    .textaboutus{
+        text-align: left;
+    }
+    
+    .profilepicture{
+        width: 9vw;
+        height: 18vh;
+        border-radius: 50%;
+    }
+    
+    .profiletitlespc{
+        display: block;
+        width: 10vw;
+        height: 1vh;
+        text-align: center;
+        border: none;
+        font-weight: bold;
+        position: relative;
+        top: 12vh;
+        right: 7vw;
+        transform: rotate(-90deg);
+    }
+
+    .yrgologo{
+        width: 8vw;
+    }
+
+    .teamname{
+        letter-spacing: 0;
+        padding-top: 1vh;
+        font-size: 1vw;
+    }
+
+    .titleaboutuspc{
+        width: 5.6vw;
+        font-size: 1.5vw;
+        border-bottom: #1A1A1A solid 0.2vw;
+        text-align: left;
+    }
+    
+    /*SECOND PAGE PC*/
+    #layoutinaccidents{
+        display: flex;
+        width: 50vw;
+        margin-right: 20vw;
+        margin-top: -20vh;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .barsoncrashes{
+        width: 30vw;
+        height: 20vh;
+        margin-top: -50vh;
+        margin-left: -60vw;
+        transform: rotate(-90deg);
+    }
+    
+    .trafikstatistik{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 20vh;
+        width: 20vw;
+        border-bottom: none;
+    }
+    
+    .barsintrafik {
+        height: 4vh;
+        width: 1vw;
+        align-items: center;
+        justify-content: flex-end;
+        
+    }
+    
+    .rotatenormal{
+        transform: rotate(90deg);
+    }
+    
+    .amountinbars{
+        width: 3vw;
+        height: 2vh;
+        text-align: center;
+        transform: rotate(90deg);
+        margin-right: -3vh;
+    }
+    
+    .buttoncontainer{
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        
+    }
+    
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        width: 12vw;
+        justify-content: center;
+        flex-direction: row;
+        height: 20vh;
+    }
+    
+    .btn{
+        width: 2vw;
+        height: 4vh;
+        background-color: white;
+        border: 0.3vw solid rgba(100, 100, 100, 0.6);
+        box-shadow: none;
+        cursor: pointer;
+    }
+
+    .btn:hover{
+        background-color: rgb(206, 206, 206);
+    }
+    
+    .btn:checked::after{
+        width: 1.3vw;
+        margin-left: 0.3vw;
+        margin-top: -1.5vh;
+    }
+    
+    .textforcheckbox{
+        font-size: 1vw;
+        font-weight: bold;
+        margin-right: 18vw;
+        margin-top: 0;
+        cursor: pointer;
+    }
+    
+    .layunder{
+        width: 8vw;
+        position: absolute;
+        margin-top: 10vh;
+        margin-left: -16vw;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+    }
+    
+    /*MOBILE ITEMS*/
+    .item{
         display: none;
     }
     
@@ -518,19 +912,23 @@ span > h3{
     #topspan{
         display: none;
     }
-
+    
     #marginfromtopspan{
+        display: none;
+    }
+    
+    .barsonmainpage{
         display: none;
     }
     
     #mainpageimg{
         display: none;
     }
-
+    
     #clickawayfromburger{
         display: none;
     }
-
+    
     .titlesmobile{
         display: none;
     }
@@ -538,59 +936,32 @@ span > h3{
     .linkinfobuttons{
         display: none;
     }
-
-    .boldonwhatpage{
-        font-weight: bold;
-    }
-
-    #mainspanpc{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 26vh;
-        width: 16vw;
-        margin-top: 21vh;
-        margin-left: 8vw;
-    }
-
-    #mainspanpc p{
-        font-size: 1vw;
-        text-align: left;
-    }
-
-    .titlepc{
-        font-size: 1.5vw;
-        text-align: left;
-    }
-
-    .header{
-        height: 8vh;
-        width: 100vw;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 2vw;
-    }
-
-    .navbarforpc{
+    
+    .displaypage{
         display: block;
     }
-
-    .navbarforpc ul{
-        list-style-type: none;
-        display: flex;
-        justify-content: space-between;
-        width: 25vw;
-        font-size: 0.9vw;
+    
+    #trafikstatistik{
+        display: none;
+    }
+    
+    #trafikhändelser{
+        display: none;
+    }
+    
+    .textaboutus{
+        display: none;
     }
 
-    .omosspc{
-        display: block;
-
+    .picturesaboutus{
+        display: none;
     }
 
-    #main{
-        display: block;
+    #program{
+        display: none;
     }
+
+    
 
 }
 

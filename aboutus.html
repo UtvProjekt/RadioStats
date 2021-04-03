@@ -33,54 +33,99 @@
                 </ul>
                 
             </div>
-            <div id="clickawayfromburger" @click="toggleMenuIcon">
-
-            </div>
+            <div id="clickawayfromburger" @click="toggleMenuIcon"></div>
         </div>
         <!--MAIN ABOUT US PAGE-->
-        
+        <div id="scroller">
+
             <div class="pagelayoutaboutus">
 
                 <div class="header"><a href="index.html"><img src="images/logotype.svg" alt="logotype" class="logotypesize"></a>
                 <nav class="navbarforpc">
                     <ul class="removelistdecoration">
-                        <li><a href="index.html">Trafikstatistik</a></li>
-                        <li><a href="#trafikstörning">Trafikhändelser</a></li>
-                        <li><a href="#dokumentärer">Program</a></li>
+                        <li><a href="trafikstatistik.html" class="navbarhover">Trafikstatistik</a></li>
+                        <li ><a href="trafikhandelser.html" class="navbarhover">Trafikhändelser</a></li>
+                        <li ><a href="program.html" class="navbarhover">Program</a></li>
                     </ul>
                 </nav>
-                <a href="aboutus.html" class="omosspc boldonwhatpage">
-                    Om Oss
+                <a href="aboutus.html" class="omosspc navbarhover">
+                    <strong>Om Oss</strong>
                 </a>
             </div>
+            <!--MOBILE LAYOUT-->
                 <div class="textaboutus">
-                    <h3>Team BabyBlue</h3>
-                    <p class="enableborderbottom">Vi är några blalalalalal</p> 
+                    <h2>Hej</h2>
+                    <h3>Vi är skaparna av RadioStats!</h3>
+                    <p>
+                        <br>Utifrån Sveriges Radios <a href="https://sverigesradio.se/api/documentation/v2/index.html" id="linkdecoration">API</a> har vi skapat datavisualiseringarna.
+                    </p>
+
                 </div>  
 
                 <div class="picturesaboutus">
-
                     <div class="profiletitles"><h3>UX</h3></div>
                     <div class="profiletitles"><h3>Utvecklare</h3></div>
-                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
-                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                    <div class="pictures"><img src="images/profilepictureanton.jpg" alt="profilepicture" class="profilepicture"></div>
                     <div class="name1">Malin Bjelle</div>
                     <div class="name2">Anton Ewards</div>
-                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
-                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                    <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
                     <div class="name1">Oliwer Hägglund</div>
                     <div class="name2">Oscar Jonasson</div>
-                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
-                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                    <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
                     <div class="name1">Fadi Tobela</div>
                     <div class="name2">Sebastian Petersson</div>
-                    <div class="pictures"><img src="images/info.svg" alt="231" class="profilepicture"></div>
+                    <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
                     <div class="pictures invisiblebackground"></div>
                     <div class="name1">Julia Palstam</div>
                     <div class="name2"></div>
+                </div>    
+                <!--PC LAYOUT-->
+                <span class="leftdescription">
+                    <h1 class="titleaboutuspc">Om Oss</h1>
+                    
+                    <h3 class="teamname">Team BabyBlue</h3>
+                    <p>
+                        <br>Utifrån Sveriges Radios <a href="https://sverigesradio.se/api/documentation/v2/index.html" id="linkdecoration">API</a> har vi skapat datavisualiseringarna.
+                    </p>
+                    <img src="images/yrgologo.png" alt="yrgologo" class="yrgologo">
+                </span>
+                <div class="notindexpages rightlayoutaboutuspc">
+                    <div class="pictureswithtext1">
+                        <div class="profiletitlespc"><h3>UX Designers</h3></div>
+                        <div class="picturesaboutuspc">
+                            <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                            <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                            <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                            <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                        </div>
+                        <div class="namesaboutuspc">
+                            <div class="name">Malin Bjelle</div>
+                            <div class="name">Oliwer Hägglund</div>
+                            <div class="name">Fadi Tobela</div>
+                            <div class="name">Julia Palstam</div>
+                        </div>
+                    </div>
+                    <div class="pictureswithtext2">
+                        <div class="profiletitlespc"><h3>Utvecklare</h3></div>
+                        <div class="picturesaboutuspc">
+                            <div class="pictures"><img src="images/profilepictureanton.jpg" alt="profilepicture" class="profilepicture"></div>
+                            <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                            <div class="pictures"><img src="" alt="profilepicture" class="profilepicture"></div>
+                            <div class="pictures invisiblebackground"></div>
+                        </div>
+                        <div class="namesaboutuspc">
+                            <div class="name">Anton Ewards</div>
+                            <div class="name">Oscar Jonasson</div>
+                            <div class="name">Sebastian Petersson</div>
+                            <div class="name invisiblebackground"></div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-        
+        </div>
+            
         </body>
         </html>

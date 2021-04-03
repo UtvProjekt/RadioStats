@@ -13,7 +13,6 @@
 <body>
     
     <div id="app">
-        
         <div class="item menu" v-bind:class="{close: menuClose}" @click="toggleMenuIcon">
                 <div class="menuLine menuLine1"></div>
                 <div class="menuLine menuLine2"></div>
@@ -27,8 +26,8 @@
     
                 <ul class="alternatives">
                     <li><a href="#trafikstatistik" @click="toggleMenuIcon">Trafikstatistik</a></li>
-                    <li><a href="#trafikhändelser"  @click="toggleMenuIcon">Trafikhändelser</a></li>
-                    <li><a href="#program"  @click="toggleMenuIcon">Program</a></li>
+                    <li><a href="#trafikhändelser" @click="toggleMenuIcon">Trafikhändelser</a></li>
+                    <li><a href="#program" @click="toggleMenuIcon">Program</a></li>
                 </ul>
                 
                 <div>
@@ -44,114 +43,124 @@
                 </ul>
                 
             </div>
-            <div id="clickawayfromburger" @click="toggleMenuIcon">
-
-            </div>
-            
+            <div id="clickawayfromburger" @click="toggleMenuIcon"></div>
         </div>
         
-        <div class="scroller">
+        <div id="scroller">
         <!--STARING SIDA-->
             <section id="main" class="pagelayout">
-
                     <div class="header">
-                        <a href="#main"><img src="images/logotype.svg" alt="logotype" class="logotypesize"></a>
+                        <a href="index.html"><img src="images/logotype.svg" alt="logotype" class="logotypesize"></a>
                         <nav class="navbarforpc">
                             <ul class="removelistdecoration">
-                                <li><a href="#trafiksstatistik">Trafikstatistik</a></li>
-                                <li><a href="#trafikhändelser">Trafikhändelser</a></li>
-                                <li><a href="#program">Program</a></li>
+                                <li><a href="trafikstatistik.html" class="navbarhover">Trafikstatistik</a></li>
+                                <li><a href="trafikhandelser.html" class="navbarhover">Trafikhändelser</a></li>
+                                <li><a href="program.html" class="navbarhover">Program</a></li>
                             </ul>
                         </nav>
-                        <a href="aboutus.html" class="omosspc">
+                        <a href="aboutus.html" class="omosspc navbarhover">
                             Om Oss
                         </a>
                     </div>
+                    <!--MOBILE DESCRIPTION-->
                     <span id="topspan">
                         Hej och välkommen till RadioStats!
+                        <p id="marginfromtopspan">Här finns statistik från Sveriges radio.</p>
                     </span>
-                    <span id="mainspanpc" class="borderleftondescription">
+                    <div class="barsonmainpage">
+                        <div class="bars bar1"></div>
+                        <div class="bars bar2"></div>
+                        <div class="bars bar3"></div>
+                    </div>
+                    <span id="bottomspan">
+                        Swipa ner för att börja
+                    </span>
+                    <!--PC DESCRIPTION-->
+                    <span id="leftspanpc" class="leftdescription">
                         <h1 class="titlepc">Hej och välkommen till RadioStats!</h1>
                         <p>Här finns visualiseringar av data från Sveriges radio.</p>
                         <p>Lek runt med statistiken för att lära dig mer.</p>
                     </span>
-                    <p id="marginfromtopspan">Här finns statistik från Sveriges radio.</p>
-    
-                    <div class="barsonmainpage">
-                        <div class="bars" id="bar1"></div>
-                        <div class="bars" id="bar2"></div>
-                        <div class="bars" id="bar3"></div>
+                    <!--PC BARS-->
+                    <div class="rightlayoutpc">
+                        <div class="mainpcshapes">
+                            <div class="barsonmainpagepc">
+                                <div class="normalflex">
+                                    <div class="bar2"></div>
+                                    <div class="circlebox orange"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mainpcshapes">
+                            <div class="barsonmainpagepc">
+                                <div class="bars bar1"></div>
+                                <div class="bars bar2"></div>
+                                <div class="bars bar3"></div>
+                            </div>
+                        </div>
+                        <div class="mainpcshapes">
+                            <div class="barsonmainpagepc layingbars">
+                                <div class="bars bar1"></div>
+                                <div class="bars bar2"></div>
+                                <div class="bars bar3"></div>
+                            </div>
+                        </div>
+
+                        <div class="textundershapes">Trafikstatistik</div>
+                        <div class="textundershapes">Trafikhändelser</div>
+                        <div class="textundershapes">Program</div>
                     </div>
-                    
-                    <span id="bottomspan">
-                        Swipa ner för att börja
-                    </span>
+
                 <img src="images/arrow2.png" alt="arrow" id="mainpageimg">
             </section>
         <!--SIDA 1-->
-            <section class="pagelayout" id="trafiksstatistik">
+            <section class="pagelayout" id="trafikstatistik">
                 <div class="header"><h1 class="titlesmobile">Trafiksstatistik</h1><a href="#" id="buttonInfo1" class="linkinfobuttons"><img src="images/info.svg" class="infobutton" alt="infobutton"></a> 
+                    <div class="showinfomessage" id="infomessage1">Jämför trafikhändelser mellan städer.</div>
                     <a href="#main"><img src="images/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
                     
-                        <nav class="navbarforpc">
-                        <ul class="removelistdecoration">
-                            <li class="boldonwhatpage"><a href="#trafiksstatistik">Trafikstatistik</a></li>
-                            <li><a href="#trafikhändelser">Trafikhändelser</a></li>
-                            <li><a href="#program">Program</a></li>
-                        </ul>
-                    </nav>
                     <a href="aboutus.html" class="omosspc">
                         Om Oss
                     </a>
-                    
-                        <div class="showinfomessage" id="infomessage1">Jämför trafikhändelser mellan städer.</div>
-                    </div>
-                
-
-                <!--Slide out statestik för trafikstatistik-->
-                <div id="layoutinaccidents">
-
-                    <div class="barsoncrashes">
-                        <div class="trafikstatistik">
-                            <h3>Vägtrafik</h3>
-                                <div id="sthlmroad" class="barsintrafik purple"></div> <div v-if = "outAndInSthlm">{{ sthlmRoad.length }}</div>
-                                <div id="goteborgroad" class="barsintrafik orange"></div> <div v-if = "outAndInGoteborg">{{ goteborgRoad.length }}</div>
-                                <div id="malmoroad" class="barsintrafik green"></div> <div v-if = "outAndInMalmo">{{ malmoRoad.length }}</div>
-                                <div id="kalmarroad" class="barsintrafik red"></div> <div v-if = "outAndInKalmar">{{ kalmarRoad.length }}</div>
-                        </div>
-                        <div class="trafikstatistik">
-                            <h3>Kollektivtrafik</h3>
-                                <div id="sthlmkollektiv" class="barsintrafik purple"></div> <div v-if = "outAndInSthlm">{{ sthlmKollektiv.length }}</div>
-                                <div id="goteborgkollektiv" class="barsintrafik orange"></div> <div v-if = "outAndInGoteborg">{{ goteborgKollektiv.length }}</div>
-                                <div id="malmokollektiv" class="barsintrafik green"></div> <div v-if = "outAndInMalmo">{{ malmoKollektiv.length }}</div>
-                                <div id="kalmarkollektiv" class="barsintrafik red"></div> <div v-if = "outAndInKalmar">{{ kalmarKollektiv.length }}</div>
-                        </div>
-                        <div class="trafikstatistik">
-                            <h3>Övrigt</h3>
-                                <div id="sthlmovrigt" class="barsintrafik purple"></div> <div v-if = "outAndInSthlm">{{ sthlmOvrigt.length }}</div>
-                                <div id="goteborgovrigt" class="barsintrafik orange"></div> <div v-if = "outAndInGoteborg">{{ goteborgOvrigt.length }}</div>
-                                <div id="malmoovrigt" class="barsintrafik green"></div> <div v-if = "outAndInMalmo">{{ malmoOvrigt.length }}</div>
-                                <div id="kalmarovrigt" class="barsintrafik red"></div> <div v-if = "outAndInKalmar">{{ kalmarOvrigt.length }}</div>
-                        </div>
-                    </div>
-
-                    <!--Knappar för trafikstatistik-->
-                    <div class="buttoncontainer">
-                        <div class="buttons">
-                            <input type="checkbox" class="btn" id="stockholm" @click="changeWidth(this.sthlmRoad, this.sthlmKollektiv, this.sthlmOvrigt, 'sthlmroad', 'sthlmkollektiv', 'sthlmovrigt')">
-                            <label for="stockholm" class="textforcheckbox">Stockholm</label>
-                            <input type="checkbox" class="btn" id="malmo" @click="changeWidth(this.malmoRoad, this.malmoKollektiv, this.malmoOvrigt, 'malmoroad', 'malmokollektiv', 'malmoovrigt')">
-                            <label for="malmo" class="textforcheckbox">Malmö</label>
-                        </div>
-                        <div class="buttons">
-                            <input type="checkbox" class="btn" id="goteborg" @click="changeWidth(this.goteborgRoad, this.goteborgKollektiv, this.goteborgOvrigt, 'goteborgroad', 'goteborgkollektiv', 'goteborgovrigt')">
-                            <label for="goteborg" class="textforcheckbox">Göteborg</label>
-                            <input type="checkbox" class="btn" id="kalmar" @click="changeWidth(this.kalmarRoad, this.kalmarKollektiv, this.kalmarOvrigt, 'kalmarroad', 'kalmarkollektiv', 'kalmarovrigt')">
-                            <label for="kalmar" class="textforcheckbox">Kalmar</label>
-                        </div>
-                    </div>
                 </div>
-
+               
+                    <!--Slide out statestik för trafikstatistik(MOBILE)-->
+                    <div id="layoutinaccidents">
+    
+                        <div class="barsoncrashes">
+                            <h3 class="rotatenormal layunder titleoverbars">Vägtrafik</h3>
+                            <div class="trafikstatistik">
+                                    <div id="sthlmroad" class="barsintrafik purple"><div v-if = "outAndInSthlm" class="amountinbars">{{ sthlmRoad.length }}</div></div> 
+                                    <div id="goteborgroad" class="barsintrafik orange"><div v-if = "outAndInGoteborg" class="amountinbars">{{ goteborgRoad.length }}</div></div>
+                                    <div id="malmoroad" class="barsintrafik green"><div v-if = "outAndInMalmo" class="amountinbars">{{ malmoRoad.length }}</div></div> 
+                            </div>
+                            <h3 class="rotatenormal layunder titleoverbars">Kollektivtrafik</h3>
+                            <div class="trafikstatistik">
+                                    <div id="sthlmkollektiv" class="barsintrafik purple"><div v-if = "outAndInSthlm" class="amountinbars">{{ sthlmKollektiv.length }}</div></div> 
+                                    <div id="goteborgkollektiv" class="barsintrafik orange"><div v-if = "outAndInGoteborg" class="amountinbars">{{ goteborgKollektiv.length }}</div></div> 
+                                    <div id="malmokollektiv" class="barsintrafik green"><div v-if = "outAndInMalmo" class="amountinbars">{{ malmoKollektiv.length }}</div></div> 
+                            </div>
+                            <h3 class="rotatenormal layunder titleoverbars">Övrigt</h3>
+                            <div class="trafikstatistik">
+                                    <div id="sthlmovrigt" class="barsintrafik purple"><div v-if = "outAndInSthlm" class="amountinbars">{{ sthlmOvrigt.length }}</div></div> 
+                                    <div id="goteborgovrigt" class="barsintrafik orange"><div v-if = "outAndInGoteborg" class="amountinbars">{{ goteborgOvrigt.length }}</div></div>
+                                    <div id="malmoovrigt" class="barsintrafik green"><div v-if = "outAndInMalmo" class="amountinbars">{{ malmoOvrigt.length }}</div></div> 
+                            </div>
+                        </div>
+    
+    
+                        <!--Knappar för trafikstatistik-->
+                        <div class="buttoncontainer">
+                            <div class="buttons">
+                                <input type="checkbox" class="btn" id="stockholm" @click="changeWidth(this.sthlmRoad, this.sthlmKollektiv, this.sthlmOvrigt, 'sthlmroad', 'sthlmkollektiv', 'sthlmovrigt')">
+                                <input type="checkbox" class="btn" id="goteborg" @click="changeWidth(this.goteborgRoad, this.goteborgKollektiv, this.goteborgOvrigt, 'goteborgroad', 'goteborgkollektiv', 'goteborgovrigt')">
+                                <input type="checkbox" class="btn" id="malmo" @click="changeWidth(this.malmoRoad, this.malmoKollektiv, this.malmoOvrigt, 'malmoroad', 'malmokollektiv', 'malmoovrigt')">
+                                <label for="stockholm" class="textforcheckbox">Stockholm</label>
+                                <label for="goteborg" class="textforcheckbox">Göteborg</label>
+                                <label for="malmo" class="textforcheckbox">Malmö</label>
+                            </div>
+                        </div>
+                    </div>
             </section>
         <!--SIDA 2-->
             <section class="pagelayout" id="trafikhändelser">
@@ -159,25 +168,36 @@
                 <div class="showinfomessage" id="infomessage2">Klicka på en av kategorierna för att se vart olyckorna skedde idag. Du kan även trycka på prickarna för att få veta mer.</div>
                                                                 <!--Ändra texten i info senare!!-->
                 <a href="#main"><img src="images/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
+                <!--PC NAVBAR-->
                 <nav class="navbarforpc">
                 <ul class="removelistdecoration">
-                    <li><a href="#trafiksstatistik">Trafikstatistik</a></li>
-                    <li class="boldonwhatpage"><a href="#trafikhändelser">Trafikhändelser</a></li>
-                    <li><a href="#program">Program</a></li>
+                    <li><a href="trafikstatistik.html">Trafikstatistik</a></li>
+                    <li class="boldonwhatpage"><a href="trafikhandelser.html">Trafikhändelser</a></li>
+                    <li><a href="program.html">Program</a></li>
                 </ul>
             </nav>
             <a href="aboutus.html" class="omosspc">
                 Om Oss
             </a>
-
             </div>
-            </section>                                        
+
+            <span class="leftdescription leftspan2pc">
+                <h1 class="titlepc">Trafikhändelser</h1>
+                <p>Se status i trafiken i Sveriges län.</p>
+            </span>
+
+            <div class="rightlayoutpc marginwithlayout">
+                
+            </div>
+            <!--MOBILE STUFF-->
+
+            </section>                               
         <!--SIDA 3-->
             <section class="pagelayout" id="program">
                 <div class="header"><h1 class="titlesmobile">Program</h1><a href="#" id="buttonInfo3" class="linkinfobuttons"><img src="images/info.svg" class="infobutton" alt="infobutton"></a>
                 <div class="showinfomessage" id="infomessage3">Välj tema och se utbud av program.</div>
-
                 <a href="#main"><img src="images/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
+                <!--PC NAVBAR-->
                 <nav class="navbarforpc">
                     <ul class="removelistdecoration">
                         <li><a href="#trafiksstatistik">Trafikstatistik</a></li>
@@ -188,8 +208,19 @@
                 <a href="aboutus.html" class="omosspc">
                     Om Oss
                 </a>
-
                  </div>
+
+                 <span class="leftdescription leftspan2pc">
+                    <h1 class="titlepc">Program</h1>
+                    <p>Välj tema och se utbud av dokumentärer och poddar.</p>
+                </span>
+    
+                <div class="rightlayoutpc marginwithlayout">
+                    
+                </div>
+    
+                <!--MOBILE STUFF-->
+
             </section>
             
         </div>
