@@ -18,3 +18,6 @@ Run command "npm install".
 
 Run the command "npm run serve" to start a local server in your browser. 
 Alternatively run "npm run build" to minimize for production.
+
+
+To use the site on mobile you need to start the site from the main page and not from one of the desktop visualisations
