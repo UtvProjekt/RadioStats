@@ -1,34 +1,20 @@
 # radiostats
 
-## Project setup
-```
-npm install
-```
+This website uses Sveriges Radios API. It shows multiple visualisations of traffic statistics and/or programs.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Step 1.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Clone our repository "git clone https://github.com/UtvProjekt/RadioStats.git RadioStats"
 
-### Run your unit tests
-```
-npm run test:unit
-```
+# Step 2. 
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+Enter the cloned folder in ur local terminal.
 
-### Lints and fixes files
-```
-npm run lint
-```
+# Step 3.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Run command "npm install".
+
+# Step 4.
+
+Run the command "npm run serve" to start a local server in your browser. 
+Alternatively run "npm run build" to minimize for production.
