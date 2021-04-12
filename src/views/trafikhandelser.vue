@@ -1,13 +1,13 @@
 <template>
 
-<section id="main" class="pagelayout">
+<section class="pagelayout">
     <div class="header">
         <router-link to="/" class="logonotindexpage"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></router-link>
         <nav class="navbarforpc">
             <ul class="removelistdecoration">
                 <li class="navbartext"><router-link to="/trafikstatistik" class="navbarhover">Trafikstatistik</router-link></li>
-                <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover boldonwhatpage">Trafikhändelser</router-link></li>
-                <li class="navbartext"><router-link to="/program" class="navbarhover">Program</router-link></li>
+                <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover boldonwhatpage">Trafikstörningar</router-link></li>
+                <li class="navbartext"><router-link to="/program" class="navbarhover">Radioprogram</router-link></li>
             </ul>
         </nav>  
         <router-link to="/omoss" class="omosspc navbarhover">
@@ -20,10 +20,8 @@
         <p>Se status i trafiken lokalt inom Göteborg.</p>
     </span>
 
-    <div class="rightlayoutpc notindexpages">
-
-            
-            
+    <div class="rightlayoutpc fornotindexpages">
+        
             <div class="layoutinhandelser">
             
                 <div class="buttoncontainer">
@@ -40,6 +38,11 @@
                     </div>
                 </div>
                 
+                <div id="nameOfMap">Göteborg
+                <div class="instructionsOfMap" v-if="showRoad || showOvrigt || showKollektiv">Klicka på en zon för att se händelser.</div>
+                <div class="instructionsOfMap" v-else>Välj vilka trafikhändelser du vill se.</div>
+                </div>
+
                 <div id="mapOfGothenburgpc">
                     <MapLocations v-if="showRoad" classtype="road" :name="this.$store.state.norrRoad" multiplierx="90" multipliery="105"></MapLocations>
                     <MapLocations v-if="showKollektiv" classtype="kollektiv" :name="this.$store.state.norrKollektiv" multiplierx="100" multipliery="100"></MapLocations>
@@ -60,8 +63,13 @@
                     
                     <div @click="popupList('norr')" class="kartanorrpc clickindexpc"></div>
                     <div @click="popupList('east')" class="kartaeastpc clickindexpc"></div>
-                    <div @click="popupList('centrum')" class="kartacentrumpc clickindexpc"></div>
                     <div @click="popupList('west')" class="kartawestpc clickindexpc"></div>
+                    <div @click="popupList('centrum')" class="kartacentrumpc clickindexpc"></div>
+                </div>
+                <div id="figureexplaination"> 
+                    <div> Vägtrafik - <img src="../assets/kvadrat.svg" class="smallimageiconpc figureposition" alt="kvadrat ikon"> </div>
+                    <div> Kollektivtrafik - <img src="../assets/circel.svg" class="smallimageiconpc figureposition" alt="cirkel ikon"></div>
+                    <div> Övrigt - <img src="../assets/triangel.svg" class="smallimageiconpc figureposition" alt="triangel ikon"></div>
                 </div>
             </div>
             </div>
@@ -69,15 +77,15 @@
 
         
         
-        <div class="popuppc" v-if="this.showNorr"><h1 class="titelpopup">Hisingen</h1><div class="closepopuppc" @click="popupList('norr')"> <img class="closecrosspc" src="../assets/cross.svg"></div>
-            <div class="messageBoxpc">    
+        <div class="popuppc" v-if="this.showNorr"><h1 class="titelpopup">Hisingen</h1><div class="closepopuppc" @click="popupList('norr')"> <img class="closecrosspc" src="../assets/cross.svg" alt="closepopup"></div>
+            <div class="windowwithmessagespc">    
                 <div v-for="elements of this.$store.state.norrList" v-bind:key="elements" class="listMessagepc">
-                    <div class="imagedivpc">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc">
+                    <div class="iconbesidemessagepc">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc" alt="triangel ikon">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc" alt="cirkel ikon">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc" alt="kvadrat ikon">
                     </div>
-                    <div class="textdivpc">
+                    <div class="prioritymessagepc">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -90,15 +98,15 @@
             </div>
         </div>
 
-        <div class="popuppc" v-if="this.showEast"><h1 class="titelpopuppc">Östra Göteborg</h1><div class="closepopuppc" @click="popupList('east')"> <img class="closecrosspc" src="../assets/cross.svg"> </div>
-            <div class="messageBoxpc">    
+        <div class="popuppc" v-if="this.showEast"><h1 class="titelpopuppc">Östra Göteborg</h1><div class="closepopuppc" @click="popupList('east')"> <img class="closecrosspc" src="../assets/cross.svg" alt="closepopup"> </div>
+            <div class="windowwithmessagespc">    
                 <div v-for="elements of this.$store.state.eastList" v-bind:key="elements" class="listMessagepc">
-                    <div class="imagedivpc">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc">
+                    <div class="iconbesidemessagepc">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc" alt="triangel ikon">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc" alt="cirkel ikon">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc" alt="kvadrat ikon">
                     </div>
-                    <div class="textdivpc">
+                    <div class="prioritymessagepc">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -111,15 +119,15 @@
             </div>
         </div>
         
-        <div class="popuppc" v-if="this.showWest"><h1 class="titelpopuppc">Västra Göteborg</h1><div class="closepopuppc" @click="popupList('west')"> <img class="closecrosspc" src="../assets/cross.svg"> </div>
-            <div class="messageBoxpc">    
+        <div class="popuppc" v-if="this.showWest"><h1 class="titelpopuppc">Västra Göteborg</h1><div class="closepopuppc" @click="popupList('west')"> <img class="closecrosspc" src="../assets/cross.svg" alt="closepopup"> </div>
+            <div class="windowwithmessagespc">    
                 <div v-for="elements of this.$store.state.westList" v-bind:key="elements" class="listMessagepc">
-                    <div class="imagedivpc">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc">
+                    <div class="iconbesidemessagepc">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc" alt="triangel ikon">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc" alt="cirkel ikon">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc" alt="kvadrat ikon">
                     </div>
-                    <div class="textdivpc">
+                    <div class="prioritymessagepc">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -132,15 +140,15 @@
             </div>
         </div>
         
-        <div class="popuppc" v-if="this.showCentrum"><h1 class="titelpopup">Centrum</h1><div class="closepopuppc" @click="popupList('centrum')"> <img class="closecrosspc" src="../assets/cross.svg"> </div>
-            <div class="messageBoxpc">    
+        <div class="popuppc" v-if="this.showCentrum"><h1 class="titelpopup">Centrum</h1><div class="closepopuppc" @click="popupList('centrum')"> <img class="closecrosspc" src="../assets/cross.svg" alt="closepopup"> </div>
+            <div class="windowwithmessagespc">    
                 <div v-for="elements of this.$store.state.centrumList" v-bind:key="elements" class="listMessagepc">
-                    <div class="imagedivpc">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc">
+                    <div class="iconbesidemessagepc">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageiconpc" alt="triangel ikon">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageiconpc" alt="cirkel ikon">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageiconpc" alt="kvadrat ikon">
                     </div>
-                    <div class="textdivpc">
+                    <div class="prioritymessagepc">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -151,23 +159,15 @@
                     </div>
                 </div>
             </div>
-       
-</div>
-     
-                   
-
-</section>
-
-
+        </div>
+    </section>
 </template>
 
-
-
 <script>
-   import MapLocations from '../components/maplocations.vue'
+
+import MapLocations from '../components/maplocations.vue'
 export default {
     data() {
-        
         return {
             showNorr: false,
             showEast: false,
@@ -182,6 +182,7 @@ export default {
         MapLocations,
     },
     methods: {
+        // Changes a boolean variable depending on what you click and shows a popup if the boolean is true
         popupList(show){
             if(show === "norr")
             {
@@ -195,9 +196,24 @@ export default {
             }
             else if(show === "centrum"){
                 this.showCentrum = !this.showCentrum
-            }
-            
+            }    
         },
+        // get method for returning value of a boolean variable 
+        getShowBoolean(show){
+            if(show === 'norr'){
+                return this.showNorr
+            }
+            else if(show === 'east'){
+                return this.showEast
+            }
+            else if(show === 'west'){
+                return this.showWest   
+            }
+            else if(show === 'centrum'){
+                return this.showCentrum
+            }
+        },
+        //Shows icons on the map by changing a boolean variable, if true the icons are shown
         showIconsOnMap(typeOfAccident){
             if(typeOfAccident === 'road'){
                 this.showRoad = !this.showRoad
@@ -213,13 +229,7 @@ export default {
     },
     
 }
-
-
-
 </script>
-
-
-
 
 <style>
     .rightlayoutpc{
@@ -235,7 +245,7 @@ export default {
         background-color: red;
     }
 
-     .closecrosspc{
+    .closecrosspc{
         width: 2vw;
         padding-top: 0.6vw;
         margin-right: 1.5vw;
@@ -254,8 +264,8 @@ export default {
         position: relative;
     }
     #mappc{
-            position: absolute;
-        }
+        position: absolute;
+    }
 
         #mapOfGothenburgpc{
             width: 80.5vw;
@@ -275,43 +285,37 @@ export default {
             width: 45vw;
             height: 70vh;
             background-color: rgba(255,255,255,0.9);
-            z-index: 10;
+            z-index: 501;
             border-radius: 1vw;
-        
         }
 
         .imgtrafikpc{
             position: absolute;
             z-index: 1;
-        
         }
+
         .karta1pc{
-            
             top: -0.9vw;
             left: -1vw;
             width: 20vw;
-            
         }
+
         .karta2pc{
             top: -0.5vw;
             right: -2.3vw;
             width: 17vw;
-            
-           
         }
+
         .karta3pc{
             top: 15vw;
             right: 1.8vw;
             width: 16vw;
-           
-        
         }
+        
         .karta4pc{
             top: 17vw;
             right: 4.2vw;
             width: 26vw;
-     
-           
         }
         
         .smallIconpc{
@@ -322,19 +326,23 @@ export default {
             z-index: 6;
             color: red;
         }
+
         #coolmappc{
             width: 100vw;
             position: absolute;
             background-color: blue;
         }
+
         .roadpc{
             border-radius: 0.5vw;
             background-color: green;
         }
+
         .kollektivpc{
             border-radius: 2vw;
             background-color: red;
         }
+
         .ovrigtpc{
             width: 0;
             height: 0;
@@ -342,6 +350,7 @@ export default {
             border-right: 2vw solid transparent;
             border-bottom: 4vw solid blue;
         }
+
         .closepopuppc{
           
             width: 3vw;
@@ -351,6 +360,7 @@ export default {
             position: absolute;  
             top: 0; 
         }
+
         .listMessagepc{
             width: 100%;
             display: flex;
@@ -359,7 +369,7 @@ export default {
             
         }
 
-        .messageBoxpc{
+        .windowwithmessagespc{
             margin-top: 3vh;
             width: 90%;
             margin-left: 5%;
@@ -367,6 +377,7 @@ export default {
             overflow-y: auto;
             
         }
+
         .checkboxarnapc{
             margin-top: 30vw;
         }
@@ -378,6 +389,7 @@ export default {
             left: 0vw;
             z-index: 2;
         }
+
         .kartaeastpc{
             width: 14vw;
             right: 0vw;
@@ -385,6 +397,7 @@ export default {
             height: 21vw;
             z-index: 3;
         }
+
         .kartawestpc{
             width: 17vw;
             left: 0vw;
@@ -392,6 +405,7 @@ export default {
             height: 15vw;
             z-index: 4;
         }
+
         .kartacentrumpc{
             width: 4vw;
             height: 6vw;
@@ -399,41 +413,51 @@ export default {
             top: 15.5vw;
             z-index: 5;
         }
+
         .clickindexpc{    
             position: absolute;
             cursor: pointer;
+            z-index: 500;
         }
-       h1{
+
+        .instructionsOfMap{
+            margin-top: 1vw;
+            margin-left: 4vw;
+            font-weight: 400;
+        }
+
+        h1{
             text-align: center;
             opacity: 1;
-       }
-       h3{
+        }
+
+        h3{
            margin: 0;
+        }
+
+        .smallimageiconpc{
+            width: 3vw;
+        }
+
+       .iconbesidemessagepc{
+            width: 60vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
        }
-       .smallimageiconpc{
-        width: 3vw;
-    
-       }
-       .imagedivpc{
-        
-        width: 60vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       }
-       .textdivpc{
+
+       .prioritymessagepc{
             width: 170vw;
        }
- .titelpopuppc{
-        padding-top: 2vh;
-    }
+
+        .titelpopuppc{
+            padding-top: 2vh;
+        }
 
     @media screen and (min-width: 700px){
         .smallIcon{
             width: 1.3vw;
             height: 1.3vw;
-            
-
         }
         .road{
             border-radius: 0.1vw;
@@ -450,10 +474,33 @@ export default {
             border-left: 0.65vw solid transparent;
             border-right: 0.65vw solid transparent;
             border-bottom: 1.3vw solid #A3C78E;
-            
         }
+        #nameOfMap{
+            margin-top: 4vh;        
+            margin-left: 4vh;
+            font-size: 2.5vh;
+            font-weight: bold;
+            position: absolute;
+            top: 2vw;
+            left: 7vw;
+            font-size: 2vw;
+        }
+        .instructionsOfMap{
+            margin-top: 1vw;
+            margin-left: 0;
+            font-weight: 400;
+            font-size: 1vw;
+        }
+        #figureexplaination{
+            bottom: 2vw;
+            left: 9vw;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+        }
+        .figureposition{
+            width: 1.2vw;
+            margin-top: 1vw;
+        }  
     }
-
-
-
 </style>

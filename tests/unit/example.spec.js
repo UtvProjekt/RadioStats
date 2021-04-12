@@ -1,13 +1,14 @@
-import { expect } from "chai";
-import { shallowMount } from "@vue/test-utils";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { expect } from "chai"
+import trafikhandelser from "@/views/trafikhandelser.vue" 
 
-describe("HelloWorld.vue", () => {
-  it("renders props.msg when passed", () => {
-    const msg = "new message";
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg },
-    });
-    expect(wrapper.text()).to.include(msg);
-  });
-});
+// Handles the value state of showNorr
+describe("trafikhandelser.getShowBoolean()", () => {
+    it("handles the state of showNorr", () => {
+        let before = trafikhandelser.methods.getShowBoolean("norr")
+        trafikhandelser.methods.popupList("norr")
+        let after = trafikhandelser.methods.getShowBoolean("norr")
+        expect(before).to.not.equal(after)
+        
+    })
+    
+})

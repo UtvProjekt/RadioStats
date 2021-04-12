@@ -1,78 +1,75 @@
 <template>
-  <router-view/>
+    <router-view />
 </template>
 
-<script> 
-    export default {
-
-        mounted(){
-            this.$store.commit('creatingTrafficLists')
-            this.$store.commit('creatingProgramLists')
-            this.$store.commit('creatingStorningLists')
-        }
-    }
+<script>
+export default {
+    // mutates store to add api objects to lists when mounted
+    mounted() {
+        this.$store.commit("creatingTrafficLists")
+        this.$store.commit("creatingProgramLists")
+        this.$store.commit("creatingStorningLists")
+    },
+}
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Hind+Guntur&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 /* Global settings */
 
-:root{
-    --orange: #D86B36;
-    --purple: #A23FA1;
-    --green: #6BA579;
-    --red: #CF3746;
+:root {
+    --orange: #c76c5f;
+    --purple: #724b77;
+    --green: #a3c78e;
+    --red: #cf3746;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    color: #1A1A1A;
+    font-family: "Open Sans", sans-serif;
+    color: #1a1a1a;
 }
 
-body{
+body {
     overflow-x: hidden;
 }
 
-p{
+p {
     font-size: 4vw;
 }
 
-a{
+a {
     text-decoration: none;
-    
 }
 
-.green{
+.green {
     background-color: var(--green);
 }
 
-.purple{
+.purple {
     background-color: var(--purple);
 }
 
-.orange{
+.orange {
     background-color: var(--orange);
 }
 
-.red{
+.red {
     background-color: var(--red);
 }
 
-.pagelayout{
+.pagelayout {
     height: 100vh;
     background-color: rgb(240, 240, 240);
-
 }
 
-.removelogomobile{
+.removelogomobile {
     display: none;
 }
 
-.header{
+.header {
     position: sticky;
     background-color: white;
     top: 0;
@@ -81,10 +78,10 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 6;
+    z-index: 550;
 }
 
-.logotypesize{
+.logotypesize {
     width: 34vw;
     padding-top: 1vh;
 }
@@ -101,7 +98,7 @@ a{
     scroll-snap-align: start;
 }
 
-.btn{
+.btn {
     -moz-default-apperance: none;
     -o-appearance: none;
     -webkit-appearance: none;
@@ -115,53 +112,66 @@ a{
     box-shadow: 0 0.5vw 1vw 0.11vw rgba(1, 1, 1, 0.9);
 }
 
-#linkdecoration{
+#linkdecoration {
     text-decoration: underline;
     color: rgb(40, 62, 255);
     font-size: 4vw;
 }
 
-.invisiblebackground{
+.invisiblebackground {
     background-color: transparent;
     border: none;
 }
 
-.enableborderbottom{
+.enableborderbottom {
     border-bottom: 1vw solid black;
 }
 
-.infobutton{
+.infobutton {
     position: absolute;
     width: 9.6vw;
     right: 9vw;
     top: 2.5vh;
 }
 
-.showinfomessage{
-    position: absolute;
-    visibility: hidden;
+.showinfomessage {
+    position: relative;
     width: 80vw;
     height: unset;
-    top: 14vh;
+    top: 4vh;
+    left: 10vw;
     font-size: 4vw;
     padding: 5vh;
     border-radius: 5vw;
     background-color: rgb(255, 255, 255);
-    box-shadow:rgba(0, 0, 0, 0.3) 0 2vw 4vw 1vw;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2vw 4vw 1vw;
     z-index: 999;
 }
 
-#buttonInfo1:focus + #infomessage1{
+.blurredbackground {
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    top: 10vh;
+    background-color: rgba(1, 1, 1, 0.4);
+    visibility: hidden;
+}
+
+#buttonInfo1:focus + #infomessage1 {
     visibility: visible;
 }
-#buttonInfo2:focus + #infomessage2{
+#buttonInfo2:focus + #infomessage2 {
     visibility: visible;
 }
-#buttonInfo3:focus + #infomessage3{
+#buttonInfo3:focus + #infomessage3 {
     visibility: visible;
 }
 
-.closeinfo{
+#buttonInfo1:focus + #scroller {
+    filter: blur(3px);
+}
+
+.closeinfo {
     position: absolute;
     width: 10vw;
     top: 2vh;
@@ -169,17 +179,17 @@ a{
 }
 
 /*Starting Page*/
-#main{
+#mainpage {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#main > span{
+#mainpage > span {
     text-align: center;
 }
 
-.barsonmainpage{
+.barsonmainpage {
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
@@ -188,84 +198,82 @@ a{
     margin-top: 10vh;
 }
 
-.bars{
+.bars {
     width: 8vw;
 }
 
-.bar1{
+.bar1 {
     height: 12vh;
-    background-color: rgba(139, 36, 187, 0.85);
 }
 
-.bar2{
+.bar2 {
     height: 16vh;
- 
 }
 
-.bar3{
+.bar3 {
     height: 20vh;
-    background-color: rgba(25, 119, 16, 0.7);
 }
 
-#topspan{
+#topspan {
     width: 80vw;
     margin-top: 14vh;
     color: rgb(53, 53, 53);
-    font-weight: bold;
     font-size: 6vw;
 }
-
-#bottomspan{
+.makeintrobold {
+    font-weight: 1000;
+    font-size: 6vw;
+}
+#bottomspan {
     margin-top: 16vh;
 }
-#marginfromtopspan{
+#marginfromtopspan {
     margin-top: 6vh;
     font-size: 4.5vw;
 }
 
-#mainpageimg{
+#mainpageimg {
     width: 8vw;
     margin-top: 1vh;
 }
 
-
 /*Hamburger Menu (Side menu)*/
-.display{
+.hamburgerdisplay {
     position: fixed;
     background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgb(122, 115, 115);
+    background-color: white;
     height: 100vh;
     width: 78vw;
     z-index: 1000;
     filter: blur(0);
-    transition: all .5s ease-in-out; 
+    transition: all 0.5s ease-in-out;
 }
 
-#showmenu{
+#showmenu {
     left: -100vw;
 }
 
-#clickawayfromburger{
+#clickawayfromburger {
     position: fixed;
     width: 22vw;
     height: 100vh;
     right: -30vw;
     background-color: transparent;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     z-index: 10;
 }
 
-.hiddenheader{
+.hiddenheader {
     margin-top: -4vh;
     width: 80vw;
     height: 10vh;
     font-size: 3.3vw;
 }
 
-.alternatives{
+.alternativesinsidemenu {
     margin-bottom: 60vh;
     margin-left: 6vw;
     height: 22vh;
@@ -282,31 +290,31 @@ a{
     top: 52%;
     visibility: hidden;
     width: 52vw;
-    border-top: .7vw dotted black;
+    border-top: 0.7vw dotted black;
     font-size: 4vw;
 }
 
-#arrowswitchimg{
+#arrowswitchimg {
     position: absolute;
     right: 12vw;
     top: 48.6vh;
     width: 4vw;
     transform: rotate(180deg);
-    transition: transform .3s;    
+    transition: transform 0.3s;
 }
 
-#newwindowimage{
+#newwindowimage {
     width: 3.5vw;
     margin-left: 1vw;
 }
 
-.titlemoreinfo{
+.titlemoreinfo {
     position: absolute;
     top: 47.8%;
     left: 6vw;
 }
 
-.omoss{
+.omoss {
     position: absolute;
     list-style-type: none;
     bottom: 4vh;
@@ -314,67 +322,67 @@ a{
     font-size: 4.5vw;
 }
 
-span > h3{
+span > h3 {
     letter-spacing: 0.3vw;
 }
 
 .item {
-	position: absolute;
+    position: absolute;
     width: 12vw;
-	height: 5vh;
+    height: 5vh;
     z-index: 1001;
     border-radius: 3vw;
     top: 2.5vh;
     left: 8vw;
-
 }
 
 .menuLine {
-	position: absolute;
-	height: 0.6vh;
-	width: 8vw;
-	background: black;
+    position: absolute;
+    height: 0.6vh;
+    width: 8vw;
+    background: black;
     border-radius: 4vw;
-	transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
+    transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
     z-index: 10;
 }
 
 .menuLine1 {
-	top:19%;
+    top: 19%;
 }
 
 .menuLine2 {
-	top:49%;
+    top: 49%;
 }
 
 .menuLine3 {
-	top:79%;
+    top: 79%;
 }
 
 .menu.close .menuLine1 {
-	transform:rotate(45deg);
-	top:49%;
+    transform: rotate(45deg);
+    top: 49%;
 }
 
-.menu.close .menuLine2, .menu.close .menuLine3 {
-	transform:rotate(-45deg);
-	top:49%;
+.menu.close .menuLine2,
+.menu.close .menuLine3 {
+    transform: rotate(-45deg);
+    top: 49%;
 }
 
 /*Om Oss Sidan*/
-.pagelayoutaboutus{
+.pagelayoutaboutus {
     background-color: rgb(240, 240, 240);
     height: unset;
     width: 100vw;
 }
 
-.aboutusheader{
+.aboutusheader {
     position: fixed;
     top: 4vh;
     height: 10vh;
 }
 
-.picturesaboutus{
+.picturesaboutus {
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
@@ -384,51 +392,51 @@ span > h3{
     justify-content: center;
 }
 
-.pictures{
+.profilepictures {
     width: 36vw;
     height: 20vh;
     border-radius: 50%;
 }
 
-.invisiblebackground{
+.invisiblebackground {
     background-color: transparent;
     border: none;
 }
 
-.name1{
+.name1 {
     width: 44vw;
     text-align: center;
     margin-right: -8vw;
 }
-.name2{
+.name2 {
     width: 44vw;
     text-align: center;
 }
 
-.textaboutus{
+.textaboutus {
     padding: 4vh;
     text-align: center;
 }
 
-.profilepicture{
+.profilepicture {
     width: 33.5vw;
     height: 18.7vh;
     border-radius: 50%;
 }
 
-.profiletitles{
+.profiletitles {
     width: 35vw;
     text-align: center;
     border-bottom: 1vw solid black;
     font-weight: bold;
 }
 
-.profiletitlespc{
+.profiletitlespc {
     display: none;
 }
 
-/*2nd Page*/
-#layoutinaccidents{
+/*Trafikstatistik sida*/
+#layoutinaccidents {
     display: flex;
     height: 86vh;
     margin-top: 1vh;
@@ -437,12 +445,12 @@ span > h3{
     justify-content: space-between;
 }
 
-.barsoncrashes{
+.barsoncrashes {
     width: 80vw;
     height: 80vh;
 }
 
-.trafikstatistik{
+.trafikstatistik {
     width: inherit;
     height: 20vh;
     display: flex;
@@ -452,7 +460,7 @@ span > h3{
     overflow-y: hidden;
 }
 
-.barsintrafik{
+.barsintrafik {
     display: flex;
     justify-content: flex-end;
     height: 4vh;
@@ -460,7 +468,7 @@ span > h3{
     transition: width 0.6s ease-out;
 }
 
-.buttoncontainer{
+.buttoncontainer {
     width: 100vw;
     height: 20vh;
     display: flex;
@@ -468,33 +476,36 @@ span > h3{
     margin-top: -1vh;
 }
 
-.buttons{
+.buttons {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 86vw;
     margin-right: 6vw;
-    
+}
+.buttonsforprograms {
+    width: 100vw;
+    margin-right: 0;
 }
 
-.amountinbars{
+.amountinbars {
     height: 4vh;
     width: 4vw;
     margin-left: 2vw;
     background-color: rgb(240, 240, 240);
 }
 
-.btn:focus{
+.btn:focus {
     outline: none;
 }
 
-.btn:checked{
+.btn:checked {
     border: none;
     box-shadow: none;
 }
 
-.btn:checked::after{
+.btn:checked::after {
     content: "";
     background-image: url("assets/checkmark.svg");
     background-size: 100% 100%;
@@ -506,74 +517,71 @@ span > h3{
     margin-top: 0.3vh;
 }
 
-
-
-#malmo:checked{
-    background-color: #6BA579;
+#malmo:checked {
+    background-color: var(--green);
 }
 
-#goteborg:checked{
-    background-color: #D86B36;
+#goteborg:checked {
+    background-color: var(--orange);
 }
 
-#stockholm:checked{
-    background-color: #A23FA1;
+#stockholm:checked {
+    background-color: var(--purple);
 }
 
-.textforcheckbox{
+.textforcheckbox {
+    position: relative;
     font-size: 5.5vw;
-    margin-left: 3vw;
-    margin-top: -5vh;
+    bottom: 3vh;
+    left: 1vw;
+    text-align: left;
 }
 
-.marginfrombars{
+.marginfrombars {
     padding-left: 5vw;
 }
 
-.leftdescription{
+.leftdescription {
     display: none;
 }
 
-.navbarforpc{
+.navbarforpc {
     display: none;
 }
 
-.omosspc{
+.omosspc {
     display: none;
 }
 
-.textundershapes{
+.textundershapes {
     display: none;
 }
 
-.mainpcshapes{
+.mainpcshapes {
     display: none;
 }
 
-.navbartext{
+.navbartext {
     font-size: 1vw;
 }
 
-.picturesaboutuspc{
+.picturesaboutuspc {
     display: none;
 }
 
-.namesaboutuspc{
+.namesaboutuspc {
     display: none;
 }
-
 
 /*FOR PC AND BIGGER SCREENS ONLY*/
-
-@media screen and (min-width: 700px){
+@media screen and (min-width: 700px) {
     /*GLOBAL FOR PC*/
-   
-    .pagelayout{
+    .pagelayout {
         overflow-y: hidden;
         overflow-x: hidden;
     }
-    .leftdescription{
-        border-left: 0.5vw solid #6B9EB8;
+    .leftdescription {
+        border-left: 0.5vw solid #6b9eb8;
         padding-left: 1vw;
         display: flex;
         flex-direction: column;
@@ -583,26 +591,26 @@ span > h3{
         margin-left: 5vw;
     }
 
-    .leftdescription p{
+    .leftdescription p {
         font-size: 1vw;
         text-align: left;
     }
 
-    .logotypesize{
+    .logotypesize {
         width: 8vw;
         padding-top: 0.5vh;
     }
-    
-    .removelogomobile{
+
+    .removelogomobile {
         display: block;
     }
-    
-    .boldonwhatpage{
+
+    .boldonwhatpage {
         font-weight: bold;
         font-size: 1vw;
     }
-    
-    .rightlayoutpc{
+
+    .rightlayoutpc {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -614,84 +622,82 @@ span > h3{
         margin-top: -42vh;
         overflow-x: hidden;
     }
-    
-    .notindexpages{
+
+    .fornotindexpages {
         margin-top: -30vh;
     }
-    
-    .logonotindexpage{
+
+    .logonotindexpage {
         margin-bottom: 1.4vh;
         height: 2.4vh;
     }
-    
-    .titlepc{
+
+    .titlepc {
         font-size: 1.5vw;
         text-align: left;
     }
-    
-    .header{
+
+    .header {
         height: 8vh;
         width: 100vw;
         display: flex;
         justify-content: space-between;
         padding: 0 2vw;
     }
-        
-    .navbarforpc{
+
+    .navbarforpc {
         display: block;
     }
 
-    .navbarhover:hover{
+    .navbarhover:hover {
         border-bottom: 0.1vw solid black;
     }
-    
-    .omosspc{
+
+    .omosspc {
         display: block;
     }
-    
-    #main{
+
+    #mainpage {
         display: block;
     }
-    
-    .mainpcshapes{
+
+    .mainpcshapes {
         display: block;
     }
-    
-    .normalflex{
+
+    .normalflex {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-    #linkdecoration{
+    #linkdecoration {
         font-size: 1vw;
     }
-    
-    
     /*MAIN PAGE*/
-    .mainpcshapes{
+    .mainpcshapes {
         width: 20vw;
         height: 10vh;
         text-align: center;
     }
-    
-    .textundershapes{
+
+    .textundershapes {
         display: block;
         margin-top: -38vh;
         margin-right: 1vw;
         font-size: 1vw;
     }
-    
-    #leftspanpc{
+
+    #leftspanpc {
         height: 26vh;
     }
-    
-    .leftspan2pc{
+
+    .leftspan2pc {
         height: 14vh;
     }
-    
-    .navbarforpc ul{
+
+    .navbarforpc ul {
         list-style-type: none;
         display: flex;
         justify-content: space-between;
@@ -699,28 +705,28 @@ span > h3{
         font-size: 0.9vw;
     }
 
-    .layingbars{
+    .layingbars {
         transform: rotate(90deg);
         margin-top: 4.4vh;
     }
-    
-    .bar1{
+
+    .bar1 {
         height: 10vh;
     }
-    
-    .bar2{
+
+    .bar2 {
         width: 2vw;
     }
-    
-    .bar3{
+
+    .bar3 {
         height: 22vh;
     }
-    
-    .bars{
+
+    .bars {
         width: 2vw;
     }
-    
-    .barsonmainpagepc{
+
+    .barsonmainpagepc {
         display: flex;
         align-items: baseline;
         justify-content: space-around;
@@ -728,20 +734,20 @@ span > h3{
         height: 20vh;
         margin-left: 6vw;
     }
-    .circlebox{
+    .circlebox {
         margin-top: 1vh;
         width: 3vw;
         height: 6vh;
         border-radius: 5vw;
     }
     /*OM OSS PAGE PC*/
-    .pagelayoutaboutus{
+    .pagelayoutaboutus {
         height: 100vh;
     }
 
-    .rightlayoutaboutuspc{
+    .rightlayoutaboutuspc {
         position: relative;
-        bottom: 15.4vh;
+        bottom: 15vh;
         left: 30vw;
         padding-left: 20vw;
         display: flex;
@@ -753,58 +759,58 @@ span > h3{
         border-left: 0.25vw dotted black;
     }
 
-    .pictureswithtext1{
-        position: relative;  
-        top: 2vh; 
-    }   
+    .pictureswithtext1 {
+        position: relative;
+        top: 2vh;
+    }
 
-    .pictureswithtext2{
+    .pictureswithtext2 {
         position: relative;
         bottom: 14vh;
     }
 
-    .picturesaboutuspc{
+    .picturesaboutuspc {
         width: 40vw;
         height: 20vh;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
     }
-    
-    .namesaboutuspc{
+
+    .namesaboutuspc {
         width: 40vw;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
     }
 
-    .pictures{
+    .profilepictures {
         width: 9.5vw;
         height: 18.85vh;
         border-radius: 50%;
     }
-    
-    .name{
+
+    .name {
         width: 10vw;
         text-align: center;
     }
-    
-    .invisiblebackground{
+
+    .invisiblebackground {
         background-color: transparent;
         border: none;
     }
-    
-    .textaboutus{
+
+    .textaboutus {
         text-align: left;
     }
-    
-    .profilepicture{
+
+    .profilepicture {
         width: 9vw;
         height: 18vh;
         border-radius: 50%;
     }
-    
-    .profiletitlespc{
+
+    .profiletitlespc {
         display: block;
         width: 10vw;
         height: 1vh;
@@ -817,25 +823,24 @@ span > h3{
         transform: rotate(-90deg);
     }
 
-    .yrgologo{
+    .yrgologo {
         width: 8vw;
     }
 
-    .teamname{
+    .teamname {
         letter-spacing: 0;
         padding-top: 1vh;
         font-size: 1vw;
     }
 
-    .titleaboutuspc{
+    .titleaboutuspc {
         width: 5.6vw;
         font-size: 1.5vw;
-        border-bottom: #1A1A1A solid 0.2vw;
         text-align: left;
     }
-    
+
     /*SECOND PAGE PC*/
-    #layoutinaccidents{
+    #layoutinaccidents {
         display: flex;
         width: 50vw;
         margin-right: 20vw;
@@ -844,7 +849,7 @@ span > h3{
         align-items: center;
     }
 
-    .layoutinhandelser{
+    .layoutinhandelser {
         display: flex;
         width: 70vw;
         margin-top: -20vh;
@@ -852,8 +857,8 @@ span > h3{
         align-items: center;
         position: relative;
     }
-    
-    .barsoncrashes{
+
+    .barsoncrashes {
         width: 30vw;
         height: 20vh;
         margin-top: -50vh;
@@ -861,8 +866,8 @@ span > h3{
         transform: rotate(-90deg);
         z-index: 999;
     }
-    
-    .trafikstatistik{
+
+    .trafikstatistik {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -870,45 +875,42 @@ span > h3{
         width: 20vw;
         border-bottom: none;
     }
-    
+
     .barsintrafik {
         height: 4vh;
         width: 1.17vw;
         align-items: center;
         justify-content: flex-end;
     }
-    
-    .rotatenormal{
+
+    .rotatenormal {
         transform: rotate(90deg);
     }
-    
-    .amountinbars{
+
+    .amountinbars {
         width: 3vw;
         height: 2vh;
         text-align: center;
         transform: rotate(90deg);
         margin-right: -3vh;
     }
-    
-    .buttoncontainer{
-    
+
+    .buttoncontainer {
         height: 30vh;
         display: flex;
         align-items: center;
         justify-content: start;
-        
     }
-    
-    .buttons{
+
+    .buttons {
         display: flex;
         flex-wrap: wrap;
         width: 12vw;
-        justify-content: center;
-        flex-direction: row;
+        justify-content: flex-start;
         height: 20vh;
     }
-    
-    .btn{
+
+    .btn {
         width: 2vw;
         height: 4vh;
         background-color: white;
@@ -917,25 +919,29 @@ span > h3{
         cursor: pointer;
     }
 
-    .btn:hover{
+    .btn:hover {
         background-color: rgb(206, 206, 206);
     }
-    
-    .btn:checked::after{
+
+    .btn:checked::after {
         width: 1.3vw;
         margin-left: 0.3vw;
         margin-top: -1.5vh;
     }
-    
-    .textforcheckbox{
+
+    .textforcheckbox {
         font-size: 1vw;
         font-weight: bold;
-        margin-right: 18vw;
         margin-top: 0;
+        margin-right: 10vw;
         cursor: pointer;
+        text-align: left;
+        position: relative;
+        left: -5vw;
+        bottom: 0;
     }
-    
-    .layunder{
+
+    .layunder {
         width: 8vw;
         position: absolute;
         margin-top: 10vh;
@@ -945,76 +951,74 @@ span > h3{
         justify-content: center;
     }
 
-
-    .bordertop{
-        border-top: .1vw solid black;
+    .bordertop {
+        border-top: 0.1vw solid black;
     }
 
-    .measureinbars{
+    .measureinbars {
         height: 7vw;
-        border-bottom: .1vw solid black; 
+        border-bottom: 0.1vw solid black;
     }
-    
+
     /*MOBILE ITEMS*/
-    .item{
+    .item {
         display: none;
     }
-    
-    #bottomspan{
+
+    #bottomspan {
         display: none;
     }
-    
-    #topspan{
+
+    #topspan {
         display: none;
     }
-    
-    #marginfromtopspan{
+
+    #marginfromtopspan {
         display: none;
     }
-    
-    .barsonmainpage{
+
+    .barsonmainpage {
         display: none;
     }
-    
-    #mainpageimg{
+
+    #mainpageimg {
         display: none;
     }
-    
-    #clickawayfromburger{
+
+    #clickawayfromburger {
         display: none;
     }
-    
-    .titlesmobile{
+
+    .titlesmobile {
         display: none;
     }
-    
-    .linkinfobuttons{
+
+    .linkinfobuttons {
         display: none;
     }
-    
-    .displaypage{
+
+    .displaypage {
         display: block;
     }
-    
-    #trafikstatistik{
-        display: none;
-    }
-    
-    #trafikhändelser{
-        display: none;
-    }
-    
-    .textaboutus{
+
+    #trafikstatistik {
         display: none;
     }
 
-    .picturesaboutus{
+    #trafikhändelser {
         display: none;
     }
 
-    #program{
+    .textaboutus {
+        display: none;
+    }
+
+    .picturesaboutus {
+        display: none;
+    }
+
+    #program {
         display: none;
     }
 }
-
 </style>

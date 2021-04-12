@@ -8,36 +8,31 @@
             </div>
             
            
-            <div class="display" id="showmenu">
+            <div class="hamburgerdisplay" id="showmenu">
                
-                <div class="header hiddenheader"><a><img src="../assets/logotype.svg"  @click="toggleMenuIcon(true, 'main')" alt="logotype" class="logotypesize"></a></div>
+                <div class="header hiddenheader"><a><img src="../assets/logotype.svg"  @click="toggleMenuIcon(true, 'mainpage')" alt="logotype" class="logotypesize"></a></div>
     
-                <ul class="alternatives">
+                <ul class="alternativesinsidemenu">
                     <li><a @click="toggleMenuIcon(true, 'trafikstatistik')">Trafikstatistik</a></li>
-                    <li><a @click="toggleMenuIcon(true, 'trafikhändelser')">Trafikhändelser</a></li>
-                    <li><a @click="toggleMenuIcon(true, 'program')">Program</a></li>
+                    <li><a @click="toggleMenuIcon(true, 'trafikhändelser')">Trafikstörningar</a></li>
+                    <li><a @click="toggleMenuIcon(true, 'program')">Radioprogram</a></li>
+                    <li><router-link to="/omoss"><li>Om Oss</li></router-link></li>
+                    
                 </ul>
-                
-                
-                
-                <ul class="omoss">
-                    <router-link to="/omoss"><li>Om Oss</li></router-link>
-                </ul>
-                
             </div>
             <div id="clickawayfromburger" @click="toggleMenuIcon(false, '')"></div>
         </div>
 
         <div id="scroller">
         <!--STARING SIDA-->
-            <section id="main" class="pagelayout">
+            <section id="mainpage" class="pagelayout">
                     <div class="header">
                         <router-link to="/"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize"></router-link>
                         <nav class="navbarforpc">
                             <ul class="removelistdecoration">
                                 <li class="navbartext"><router-link to="/trafikstatistik" class="navbarhover">Trafikstatistik</router-link></li>
-                                <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover">Trafikhändelser</router-link></li>
-                                <li class="navbartext"><router-link to="/program" class="navbarhover">Program</router-link></li>
+                                <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover">Trafikstörningar</router-link></li>
+                                <li class="navbartext"><router-link to="/program" class="navbarhover">Radioprogram</router-link></li>
                             </ul>
                         </nav>  
                         <router-link to="/omoss" class="omosspc navbarhover">
@@ -46,13 +41,13 @@
                     </div>
                     <!--MOBILE DESCRIPTION-->
                     <span id="topspan">
-                        Hej och välkommen till RadioStats!
-                        <p id="marginfromtopspan">Här finns statistik från Sveriges radio.</p>
+                        <p class="makeintrobold">Hej och välkommen till RadioStats!</p>
+                        <p id="marginfromtopspan">Statistik från Sveriges radio.</p>
                     </span>
                     <div class="barsonmainpage">
-                        <div class="bars bar1"></div>
+                        <div class="bars bar1 purple"></div>
                         <div class="bars bar2 orange"></div>
-                        <div class="bars bar3"></div>
+                        <div class="bars bar3 green"></div>
                     </div>
                     <span id="bottomspan">
                         Swipa ner för att börja
@@ -78,25 +73,25 @@
                         <div class="mainpcshapes">
                             <router-link to="/trafikhandelser">
                             <div class="barsonmainpagepc">
-                                <div class="bars bar1"></div>
+                                <div class="bars bar1 purple"></div>
                                 <div class="bars bar2 orange"></div>
-                                <div class="bars bar3"></div>
+                                <div class="bars bar3 green"></div>
                             </div>
                             </router-link>
                         </div>
                         <div class="mainpcshapes">
                             <router-link to="/program">
                             <div class="barsonmainpagepc layingbars">
-                                <div class="bars bar1"></div>
+                                <div class="bars bar1 purple"></div>
                                 <div class="bars bar2 orange"></div>
-                                <div class="bars bar3"></div>
+                                <div class="bars bar3 green"></div>
                             </div>
                             </router-link>
                         </div>
 
                         <div class="textundershapes">Trafikstatistik</div>
-                        <div class="textundershapes">Trafikhändelser</div>
-                        <div class="textundershapes">Program</div>
+                        <div class="textundershapes">Trafikstörningar</div>
+                        <div class="textundershapes">Radioprogram</div>
                     </div>
 
                 <img src="../assets/arrow2.png" alt="arrow" id="mainpageimg">
@@ -105,9 +100,12 @@
             <section class="pagelayout" id="trafikstatistik">
                 <div class="header"><h1 class="titlesmobile">Trafiksstatistik</h1>
                 <a href="#" id="buttonInfo1" class="linkinfobuttons"><img src="../assets/info.svg" class="infobutton" alt="infobutton"></a> 
-                    <div class="showinfomessage" id="infomessage1">Jämför trafikhändelser mellan Malmö, Göteborg och
-                        Stockholm.<p><br></p></div>
-                    <a href="#main"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
+                
+                <div class="blurredbackground" id="infomessage1">
+                    <div class="showinfomessage">Jämför trafikhändelser mellan Malmö, Göteborg och Stockholm.</div>
+                </div>
+
+                    <a href="#mainpage"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
                     
                     <a href="aboutus.html" class="omosspc">
                         Om Oss
@@ -154,20 +152,24 @@
             </section>
         <!--SIDA 2-->
             <section class="pagelayout" id="trafikhändelser">
-                <div class="header"><h1 class="titlesmobile">Trafikhändelser</h1>
+                <div class="header"><h1 class="titlesmobile">Trafikstörningar</h1>
                 <a href="#" id="buttonInfo2" class="linkinfobuttons"><img src="../assets/info.svg" class="infobutton" alt="infobutton"></a>
-               <div class="showinfomessage" id="infomessage2">Här ser du en karta över fyra zoner i Göteborg, östra,
+                
+                <div class="blurredbackground" id="infomessage2">
+                <div class="showinfomessage">Här ser du en karta över fyra zoner i Göteborg, östra,
                     västra, norra och centrala.
                     <br><br>
                     <p>Välj trafikkategori. På kartan symboliserar trafikhändelser och plats.</p><br>
                     <p>Klicka på en zon för att få reda på mer om händelserna.</p></div>
-                <a href="#main"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
+                </div>
+
+                <a href="#mainpage"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
                 <!--PC NAVBAR-->
                 <nav class="navbarforpc">
                 <ul class="removelistdecoration">
                     <li><a href="trafikstatistik.html">Trafikstatistik</a></li>
-                    <li class="boldonwhatpage"><a href="trafikhandelser.html">Trafikhändelser</a></li>
-                    <li><a href="program.html">Program</a></li>
+                    <li class="boldonwhatpage"><a href="trafikhandelser.html">Trafikstörningar</a></li>
+                    <li><a href="program.html">Radioprogram</a></li>
                 </ul>
             </nav>
             <a href="aboutus.html" class="omosspc">
@@ -176,7 +178,7 @@
             </div>
 
             <span class="leftdescription leftspan2pc">
-                <h1 class="titlepc">Trafikhändelser</h1>
+                <h1 class="titlepc">Trafikstörningar</h1>
                 <p>Se status i trafiken i Sveriges län.</p>
             </span>
 
@@ -184,7 +186,10 @@
                 
             </div>
             <!--MOBILE STUFF-->
-
+        <div id="blurredbackgroundforpopup" v-if="showNorr ||showCentrum ||showEast || showWest" ></div>
+        <div id="nameOfMap">Göteborg</div>
+        <div class="instructionsOfMap" v-if="showRoad || showOvrigt || showKollektiv">Klicka på en zon för att se händelser</div>
+        <div class="instructionsOfMap" v-else>Välj vilka trafikhändelser du vill se.</div>
         <div id="mapOfGothenburg">
             <MapLocations v-if="showRoad" classtype="road" :name="this.$store.state.norrRoad" multiplierx="90" multipliery="105"></MapLocations>
             <MapLocations v-if="showKollektiv" classtype="kollektiv" :name="this.$store.state.norrKollektiv" multiplierx="100" multipliery="100"></MapLocations>
@@ -206,8 +211,8 @@
         
         <div @click="popupList('norr')" class="kartanorr clickindex"></div>
         <div @click="popupList('east')" class="kartaeast clickindex"></div>
-        <div @click="popupList('centrum')" class="kartacentrum clickindex"></div>
         <div @click="popupList('west')" class="kartawest clickindex"></div>
+        <div @click="popupList('centrum')" class="kartacentrum clickindex"></div>
         
                         <div class="buttoncontainer buttoncontainerforhandelser">
                             <div class="buttons">
@@ -222,15 +227,15 @@
        
         
         
-        <div class="popup" v-if="this.showNorr"><h1 class="titelpopup">Hisingen</h1><div class="closepopup" @click="popupList('norr')"> <img class="closecross" src="../assets/cross.svg"></div>
-            <div class="messageBox">    
+        <div class="popup" v-if="this.showNorr"><h1 class="titelpopup">Hisingen</h1><div class="closepopup" @click="popupList('norr')"> <img class="closecross" src="../assets/cross.svg" alt="picture on a close cross"></div>
+            <div class="windowwithmessages">    
                 <div v-for="elements of this.$store.state.norrList" v-bind:key="elements" class="listMessage">
-                    <div class="imagediv">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon">
+                    <div class="iconbesidemessage">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon" alt="picture on a triangle">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon" alt="picture on a circle">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon" alt="picture on a square">
                     </div>
-                    <div class="textdiv">
+                    <div class="prioritymessage">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -243,15 +248,15 @@
             </div>
         </div>
 
-        <div class="popup" v-if="this.showEast"><h1 class="titelpopup">Östra Göteborg</h1><div class="closepopup" @click="popupList('east')"> <img class="closecross" src="../assets/cross.svg"> </div>
-            <div class="messageBox">    
+        <div class="popup" v-if="this.showEast"><h1 class="titelpopup">Östra Göteborg</h1><div class="closepopup" @click="popupList('east')"> <img class="closecross" src="../assets/cross.svg" alt="picture on a close cross"> </div>
+            <div class="windowwithmessages">    
                 <div v-for="elements of this.$store.state.eastList" v-bind:key="elements" class="listMessage">
-                    <div class="imagediv">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon">
+                    <div class="iconbesidemessage">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon" alt="picture on a triangle">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon" alt="picture on a circle">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon" alt="picture on a square">
                     </div>
-                    <div class="textdiv">
+                    <div class="prioritymessage">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -264,15 +269,15 @@
             </div>
         </div>
         
-        <div class="popup" v-if="this.showWest"><h1 class="titelpopup">Västra Göteborg</h1><div class="closepopup" @click="popupList('west')"> <img class="closecross" src="../assets/cross.svg"> </div>
-            <div class="messageBox">    
+        <div class="popup" v-if="this.showWest"><h1 class="titelpopup">Västra Göteborg</h1><div class="closepopup" @click="popupList('west')"> <img class="closecross" src="../assets/cross.svg" alt="picture on a close cross"> </div>
+            <div class="windowwithmessages">    
                 <div v-for="elements of this.$store.state.westList" v-bind:key="elements" class="listMessage">
-                    <div class="imagediv">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon">
+                    <div class="iconbesidemessage">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon" alt="picture on a triangle">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon" alt="picture on a circle">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon" alt="picture on a square">
                     </div>
-                    <div class="textdiv">
+                    <div class="prioritymessage">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -285,15 +290,15 @@
             </div>
         </div>
         
-        <div class="popup" v-if="this.showCentrum"><h1 class="titelpopup">Centrum</h1><div class="closepopup" @click="popupList('centrum')"> <img class="closecross" src="../assets/cross.svg"> </div>
-            <div class="messageBox">    
+        <div class="popup" v-if="this.showCentrum"><h1 class="titelpopup">Centrum</h1><div class="closepopup" @click="popupList('centrum')"> <img class="closecross" src="../assets/cross.svg" alt="picture on a close cross"> </div>
+            <div class="windowwithmessages">    
                 <div v-for="elements of this.$store.state.centrumList" v-bind:key="elements" class="listMessage">
-                    <div class="imagediv">
-                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon">
-                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon">
-                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon">
+                    <div class="iconbesidemessage">
+                        <img v-if="elements.category===3" src="../assets/triangel.svg" class="smallimageicon" alt="picture on a triangle">
+                        <img v-if="elements.category===1" src="../assets/circel.svg" class="smallimageicon" alt="picture on a circle">
+                        <img v-if="elements.category===0" src="../assets/kvadrat.svg" class="smallimageicon" alt="picture on a square">
                     </div>
-                    <div class="textdiv">
+                    <div class="prioritymessage">
                         <h3 v-if="elements.priority===3">Störning</h3>
                         <h3 v-if="elements.priority===2">Stor händelse</h3>
                         <h3 v-if="elements.priority===1">Mycket Allvarlig Händelse</h3>
@@ -311,15 +316,17 @@
             </section>                               
         <!--SIDA 3-->
             <section class="pagelayout" id="program">
-                <div class="header"><h1 class="titlesmobile">Program</h1><a href="#" id="buttonInfo3" class="linkinfobuttons"><img src="../assets/info.svg" class="infobutton" alt="infobutton"></a>
-                <div class="showinfomessage" id="infomessage3">Välj en eller flera av 4 teman för att se utbud av program och dokumentärer.</div>
-                <a href="#main"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
+                <div class="header"><h1 class="titlesmobile">Radioprogram</h1><a href="#" id="buttonInfo3" class="linkinfobuttons"><img src="../assets/info.svg" class="infobutton" alt="infobutton"></a>
+                <div class="blurredbackground" id="infomessage3">
+                <div class="showinfomessage">Välj en eller flera av 4 teman för att se utbud av program och dokumentärer.</div>
+                </div>
+                <a href="#mainpage"><img src="../assets/logotype.svg" alt="logotype" class="logotypesize removelogomobile"></a>
                 <!--PC NAVBAR-->
                 <nav class="navbarforpc">
                     <ul class="removelistdecoration">
                         <li><a href="#trafiksstatistik">Trafikstatistik</a></li>
-                        <li><a href="#trafikhändelser">Trafikhändelser</a></li>
-                        <li class="boldonwhatpage"><a href="#program">Program</a></li>
+                        <li><a href="#trafikhändelser">Trafikstörningar</a></li>
+                        <li class="boldonwhatpage"><a href="#program">Radioprogram</a></li>
                     </ul>
                 </nav>
                 <router-link to="/omoss" class="omosspc">
@@ -328,46 +335,41 @@
                  </div>
 
                  <span class="leftdescription leftspan2pc">
-                    <h1 class="titlepc">Program</h1>
+                    <h1 class="titlepc">Radioprogram</h1>
                     <p>Välj tema och se utbud av dokumentärer och poddar.</p>
-                </span>
-    
-                <div class="rightlayoutpc marginwithlayout">
-                    
-                </div>
-    
+                </span>    
                 <!--MOBILE STUFF-->
      
-    <div class="container">
+    <div class="containerforprogramlist">
       <div class="barbox">
         <div class="rotate">
-          <div id="docBar" class="box three floatleft"></div>
+          <div id="docBar" class="boxofprogrambars makeboxeaseout floatleft"></div>
           <div v-if="outAndInDoku" class="rotate">{{ this.$store.state.documentaryList.length }}</div>
           <div v-else class="rotate"> - </div>
         </div>
         <div class="rotate">
-            <div id="musicBar" class="box three floatleft"></div>
+            <div id="musicBar" class="boxofprogrambars makeboxeaseout floatleft"></div>
             <div v-if="outAndInMusic" class="rotate">{{ this.$store.state.musicList.length }}</div>
             <div v-else class="rotate"> - </div>
         </div>
         <div class="rotate">
-            <div id="sportBar" class="box three floatleft"></div>
+            <div id="sportBar" class="boxofprogrambars makeboxeaseout floatleft"></div>
             <div v-if="outAndInSport" class="rotate">{{ this.$store.state.sportList.length }}</div>
             <div v-else class="rotate"> - </div>
         </div>
           <div class="rotate">
-            <div id="humourBar" class="box three floatleft"></div>
+            <div id="humourBar" class="boxofprogrambars makeboxeaseout floatleft"></div>
             <div v-if="outAndInHumour" class="rotate">{{ this.$store.state.humourList.length }}</div>
             <div v-else class="rotate"> - </div>
         </div>
       </div>
     <div class="buttoncontainer buttoncontainerforprogram">
-                            <div class="buttons">
+                            <div class="buttons buttonsforprograms">
                                 <input type="checkbox" class="btn btnprogram" id="buttondoc" @click="changeProgramWidth('docBar');sortAlphabetically('alphabetically', false)">
                                 <input type="checkbox" class="btn btnprogram" id="buttonmus" @click="changeProgramWidth('musicBar');sortAlphabetically('alphabetically', false)">
                                 <input type="checkbox" class="btn btnprogram" id="buttonspo" @click="changeProgramWidth('sportBar');sortAlphabetically('alphabetically', false)">
                                 <input type="checkbox" class="btn btnprogram" id="buttonhum" @click="changeProgramWidth('humourBar');sortAlphabetically('alphabetically', false)">
-                                <label for="buttondoc" class="textforcheckbox programcheckbox">Doku</label>
+                                <label for="buttondoc" class="textforcheckbox programcheckbox">Dokumentär</label>
                                 <label for="buttonmus" class="textforcheckbox programcheckbox">Musik</label>
                                 <label for="buttonspo" class="textforcheckbox programcheckbox">Sport</label>
                                 <label for="buttonhum" class="textforcheckbox programcheckbox">Humor</label>
@@ -375,11 +377,11 @@
                         </div>
       
       <div class="programbox">
+        <div id="programboxtitle">Programförslag</div>
         <div v-if="outAndInDoku && !sorted">
           <div class="programs" v-for="programs of this.$store.state.documentaryList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-            <img class="image" :src="programs.programimage"
-            /></a>
+            <img class="image" :src="programs.programimage" alt="image of the program"></a>
             <div class="listtext">
                 <em>{{ programs.name }}</em>{{programs.description}}
             </div>
@@ -387,11 +389,11 @@
         </div>
       
 
+
       <div v-if="outAndInMusic && !sorted">
         <div class="programs" v-for="programs of this.$store.state.musicList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-              <img class="image" :src="programs.programimage"
-            /></a>
+              <img class="image" :src="programs.programimage" alt="image of the program"></a>
             <div class="listtext">
               <em>{{ programs.name }}</em>{{programs.description}}
             </div>
@@ -401,8 +403,7 @@
       <div v-if="outAndInSport && !sorted">  
         <div class="programs" v-for="programs of this.$store.state.sportList" v-bind:key="programs">
           <a target="_blank" :href="programs.programurl">
-            <img class="image" :src="programs.programimage"
-          /></a>
+            <img class="image" :src="programs.programimage" alt="image of the program"></a>
           <div class="listtext">
             <em>{{ programs.name }}</em>{{programs.description}}
           </div>
@@ -412,8 +413,7 @@
       <div v-if="outAndInHumour && !sorted">
         <div class="programs" v-for="programs of this.$store.state.humourList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-              <img class="image" :src="programs.programimage"
-            /></a>
+              <img class="image" :src="programs.programimage" alt="image of the program"></a>
             <div class="listtext">
               <em>{{ programs.name }}</em>{{programs.description}}
             </div>
@@ -423,24 +423,15 @@
       <div v-if="this.sorted">
         <div class="programs" v-for="programs of sortedAlphaList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-              <img class="image" :src="programs.programimage"
-            /></a>
+              <img class="image" :src="programs.programimage" alt="image of the program"></a>
             <div class="listtext">
               <em>{{ programs.name }}</em>{{programs.description}}
             </div>
         </div>
       </div>
 
-
       </div>
-      
       </div>
-
-      
-      
-
-      
-        
             </section>
           </div>
 </template>
@@ -448,10 +439,9 @@
 <script>
 
 
-   import MapLocations from '../components/maplocations.vue'
+import MapLocations from '../components/maplocations.vue'
 export default {
     data() {
-        
         return {
             outAndInGoteborg: false,
             outAndInMalmo: false,
@@ -480,6 +470,7 @@ export default {
         MapLocations,
     },
     methods: {
+        // Changes a boolean that decides if a popup window should be shown or not
         popupList(show){
             if(show === "norr")
             {
@@ -495,6 +486,7 @@ export default {
                 this.showCentrum = !this.showCentrum
             }
         },
+        // Changes a boolean that decides which icons should be showing on the map
         showIconsOnMap(typeOfAccident){
             if(typeOfAccident === 'road'){
                 this.showRoad = !this.showRoad
@@ -506,56 +498,60 @@ export default {
                 this.showOvrigt = !this.showOvrigt
             }
         },
+        // Opens the hamburgermenu
         openSideMenu(){
-                document.getElementById("showmenu").style.left = "0"
-                document.getElementById("clickawayfromburger").style.right = "0"
-                document.getElementById("scroller").style.filter = "blur(1vw)"
-            },
-            closeSideMenu(){
-                document.getElementById("showmenu").style.left = "-100vw"
-                document.getElementById("clickawayfromburger").style.right = "-30vw"
-                document.getElementById("scroller").style.filter = "blur(0)"
-            },
-            toggleMenuIcon(trueorfalse, id){
-               
-                if(!this.menuClose){
-                    this.openSideMenu()
-                }
-                else{
-                    this.closeSideMenu()
-                }
-                
-                this.menuClose = !this.menuClose
-                
-                
-               if(trueorfalse){
-                    this.scrollToElement(id)
-               }
-            },
-
-            scrollToElement(id){
-                let element = document.getElementById(id)
-                element.scrollIntoView(true)
-            },
-            openMoreInfo(){
-                document.getElementById("hiddenblockinburger").style.visibility = "visible"
-                document.getElementById("arrowswitchimg").style.transform = "rotate(0)"
-            },
-            closeMoreInfo(){
-                document.getElementById("hiddenblockinburger").style.visibility = "hidden"
-                document.getElementById("arrowswitchimg").style.transform = "rotate(180deg)"
-            },
-            toggleMoreInfo(){
-                if(!this.moreInfo){
-                    this.openMoreInfo()
-                }
-                else{
-                    this.closeMoreInfo()
-                }
-                this.moreInfo = !this.moreInfo
-            },
-        changeWidth(type1, type2, type3, ide1, ide2, ide3){
+            document.getElementById("showmenu").style.left = "0"
+            document.getElementById("clickawayfromburger").style.right = "0"
+            document.getElementById("scroller").style.filter = "blur(1vw)"
+        },
+        // Closes the hamburgermenu
+        closeSideMenu(){
+            document.getElementById("showmenu").style.left = "-100vw"
+            document.getElementById("clickawayfromburger").style.right = "-30vw"
+            document.getElementById("scroller").style.filter = "blur(0)"
+        },
+        // Decides if the hamburgermenu should be closed or opened and calls that method
+        toggleMenuIcon(trueorfalse, id){
+            if(!this.menuClose){
+                this.openSideMenu()
+            }
+            else{
+                this.closeSideMenu()
+            }
+            this.menuClose = !this.menuClose
             
+            if(trueorfalse){
+                this.scrollToElement(id)
+            }
+                
+        },
+        // Scrolls to an element
+        scrollToElement(id){
+            let element = document.getElementById(id)
+            element.scrollIntoView(true)
+        },
+        // Shows a div containing info about the visualisation
+        openMoreInfo(){
+            document.getElementById("hiddenblockinburger").style.visibility = "visible"
+            document.getElementById("arrowswitchimg").style.transform = "rotate(0)"
+        },
+        // Closes the div containing info about the visualisation
+        closeMoreInfo(){
+            document.getElementById("hiddenblockinburger").style.visibility = "hidden"
+            document.getElementById("arrowswitchimg").style.transform = "rotate(180deg)"
+        },
+        // Decides which moreinfo method should be called depending on a boolean that changes each time its called
+        toggleMoreInfo(){
+            if(!this.moreInfo){
+                this.openMoreInfo()
+            }
+            else{
+                this.closeMoreInfo()
+            }
+            this.moreInfo = !this.moreInfo
+        },
+        // Check which button is pressed and calls a method that changes the width
+        changeWidth(type1, type2, type3, ide1, ide2, ide3){
             if(ide1==='goteborgroad')
             {
                 this.checkStatus(type1, type2, type3, ide1, ide2, ide3, this.outAndInGoteborg)
@@ -571,10 +567,8 @@ export default {
                 this.checkStatus(type1, type2, type3, ide1, ide2, ide3, this.outAndInSthlm)
                 this.outAndInSthlm= !this.outAndInSthlm
             }
-            
-            
         },
-        
+        // Changes the width of a bar
         checkStatus(type1, type2, type3, ide1, ide2, ide3, outAndIn){
             let ide = [ide1, ide2, ide3]
             let type = [type1, type2, type3]
@@ -589,8 +583,7 @@ export default {
                     for(let i = 0; i<3; i++){
                         document.getElementById(ide[i]).style.width = 9+(4*(type[i]).length)+"vw"
                     }
-                  }
-
+                }
             } else {
                 if(x.matches){
                     for(let i = 0; i<3; i++){
@@ -602,10 +595,9 @@ export default {
                         document.getElementById(ide[i]).style.width = "2.5vw"
                     }
                 }
-
             }
         },
-
+        // Check which button is pressed on the program page and calls a method that changes the width
         changeProgramWidth(barId) {
             if (barId === 'docBar') {
                 this.checkAndChangeStatus(barId, this.$store.state.documentaryList, this.outAndInDoku)
@@ -623,29 +615,26 @@ export default {
                 this.checkAndChangeStatus(barId, this.$store.state.humourList ,this.outAndInHumour)
                 this.outAndInHumour = !this.outAndInHumour;
             }
-
             this.outAndIn = !this.outAndIn;
         },
-
+        // changes the height of the bars on the program page
         checkAndChangeStatus(barId, value, outAndIn) {
             if (!outAndIn) {
-              if(value.length >= 100){
-                document.getElementById(barId).style.height = "50vh";
-              }else{
-                document.getElementById(barId).style.height = (value.length/2.5)+"vh";
-              }
-              
+                if(value.length >= 100){
+                    document.getElementById(barId).style.height = "50vh";
+                }else{
+                    document.getElementById(barId).style.height = (value.length/2.5)+"vh";
+                }  
             } else {
-              document.getElementById(barId).style.height = "1vh";
-            }
-            
+                document.getElementById(barId).style.height = "2vh";
+            }   
         },
+        // Add each list of programs to a combined list that sorts alphabetically
         sortAlphabetically(sortBy, sorting){
             this.sortedAlphaList = []
             if(this.outAndInDoku === true){
                 for(let program of this.$store.state.documentaryList){
                     this.sortedAlphaList.push(program)
-                   
                 }
             }
             if(this.outAndInMusic === true){
@@ -669,17 +658,8 @@ export default {
             if(sorting === true){
                 this.sorted = !this.sorted
             }
-            
-            
-          }
-
-        
-
-          
-
-
+        },
     },
-    
 }
 </script>
 
@@ -705,7 +685,7 @@ export default {
         font-size: 4.5vw;
     }
     .buttoncontainerforhandelser{
-        margin-top: 20vw;
+        margin-top: 10vw;
     }
     .buttoncontainerforprogram{
         margin-top: 40vh;
@@ -745,10 +725,14 @@ export default {
             width: 91vw;
             height: 100vw;
             left: 5.5vw;
-            top: 9vw;
+            top: 0vw;
             position: relative;
             
-            
+        }
+        .instructionsOfMap{
+            margin-top: 1vw;
+            margin-left: 4vw;
+            font-weight: 400;
         }
 
         .popup{
@@ -758,7 +742,7 @@ export default {
             width: 80vw;
             height: 60vh;
             background-color: rgba(255,255,255,0.9);
-            z-index: 10;
+            z-index: 501;
             border-radius: 4vw;
         
         }
@@ -768,28 +752,35 @@ export default {
             width: 50vw;
             z-index: 1;
         }
+        #nameOfMap{
+            margin-top: 4vw;
+            margin-left: 4vw;
+            font-size: 6.5vw;
+            font-weight: bold;
+            
+        }
         .karta1{
             
-            top: 25vw;
+            top: 35vw;
             width: 58vw;
             left: 3vw;
            
             
         }
         .karta2{
-            top: 25vw;
+            top: 35vw;
             right: -3vw;
             
            
         }
         .karta3{
-            top: 70.5vw;
+            top: 80.5vw;
             left: 44vw;
            
         
         }
         .karta4{
-            top: 76.5vw;
+            top: 86.5vw;
             width: 80vw;
             left: 5vw;
      
@@ -844,7 +835,7 @@ export default {
             
         }
 
-        .messageBox{
+        .windowwithmessages{
             margin-top: 3vh;
             width: 90%;
             margin-left: 5%;
@@ -864,20 +855,20 @@ export default {
         .kartawest{
             width: 50vw;
             height: 44vw;
-            top: 82vw;
+            top: 92vw;
             left: 5vw;
             z-index: 2;
         }
         .kartaeast{
             width: 40vw;
             right: 3vw;
-            top: 26vw;
+            top: 36vw;
             height: 60vw;
             z-index: 3;
         }
         .kartanorr{
             width: 50vw;
-            top: 26vw;
+            top: 36vw;
             left: 6vw;
             height: 55vw;
             z-index: 4;
@@ -886,11 +877,12 @@ export default {
             width: 9vw;
             height: 15vw;
             left: 48vw;
-            top: 74vw;
+            top: 84vw;
             z-index: 5;
         }
         .clickindex{    
             position: absolute;
+            z-index: 500;
         }
        h1{
             text-align: center;
@@ -903,14 +895,14 @@ export default {
         width: 5vw;
     
        }
-       .imagediv{
+       .iconbesidemessage{
         
         width: 60vw;
         display: flex;
         justify-content: center;
         align-items: center;
        }
-       .textdiv{
+       .prioritymessage{
             width: 170vw;
        }
 
@@ -966,8 +958,8 @@ export default {
     
     .programs {
       width: 80vw;
-      margin-left: 10vw;
-      margin-bottom: 3vw;
+      margin-left: 5vw;
+      margin-top: 5vw;
       height: 14vh;
       display: flex;
       background-color:white;
@@ -975,11 +967,18 @@ export default {
     }
     .programbox {
       top: 67vh;
-     
-      width: 100vw;
+      border-top: 1vw dotted rgb(124, 124, 124);
+      width: 90vw;
       height: auto;
       position: absolute;
       
+    }
+    #programboxtitle{
+        width: 100%;
+        text-align: center;
+        font-size: 6.5vw;
+        font-weight: bold;
+        margin-top: 3vw;
     }
     .listtext {
       display: flex;
@@ -988,25 +987,22 @@ export default {
       margin-left: 5vw;
       overflow-y: auto;
     }
-    .container {
+    .containerforprogramlist {
       width: 100vw;
       height: 90vh;
       display: flex;
       justify-content: space-around;
       position: relative;
       overflow-y: auto;
-
     }
 
-    .box {
+    .boxofprogrambars {
       width: 15vw;
       height: 2vh;
       transition-duration: 0.7s;
       transition-property: height;
-
-      /*transform: rotate(90deg);*/
     }
-    .three {
+    .makeboxeaseout {
       background: #9ceaef;
       transition-timing-function: ease-out;
     }
@@ -1031,6 +1027,15 @@ export default {
     }
     .titelpopup{
         padding-top: 2vh;
+    }
+    #blurredbackgroundforpopup{
+        position: absolute;
+        filter: blur(3vw);
+        width: 100vw;
+        height: 90vh;
+        background-color: white;
+        opacity: 0.6;
+        z-index: 500;
     }
 
 

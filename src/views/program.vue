@@ -7,8 +7,8 @@
             <nav class="navbarforpc">
                 <ul class="removelistdecoration">
                     <li class="navbartext"><router-link to="/trafikstatistik" class="navbarhover">Trafikstatistik</router-link></li>
-                    <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover">Trafikhändelser</router-link></li>
-                    <li class="navbartext"><router-link to="/program" class="navbarhover boldonwhatpage">Program</router-link></li>
+                    <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover">Trafikstörningar</router-link></li>
+                    <li class="navbartext"><router-link to="/program" class="navbarhover boldonwhatpage">Radioprogram</router-link></li>
                 </ul>
             </nav>
 
@@ -18,11 +18,11 @@
         </div>
   
         <span class="leftdescription leftspan2pc">
-            <h1 class="titlepc">Program</h1>
+            <h1 class="titlepc">Radioprogram</h1>
             <p>Välj tema och se utbud av program</p>
         </span>
 
-        <div class="rightlayoutpc notindexpages programoverflow">
+        <div class="rightlayoutpc fornotindexpages programoverflow">
             <div class="layoutinprogram">
                 <div class="buttoncontainer">
                     <div class="buttons buttonsforprogram">
@@ -40,23 +40,23 @@
                     </div>
                 </div>
                 <div class="pcprogrambars">
-        <div class="pcbarone">
-            <div id="docBar" class="barsinprogram boxprogram three floatleft"></div>
+        <div class="barstodisplayprograms">
+            <div id="docBar" class="barsinprogram boxprogram makeboxeaseout floatleft"></div>
             <div v-if="outAndInDoku" class="textalign">{{ this.$store.state.documentaryList.length }}</div>
             <div v-else class="textalign biggerline"> - </div>
         </div>
-        <div class="pcbarone">
-            <div id="musicBar" class="barsinprogram boxprogram three floatleft"></div>
+        <div class="barstodisplayprograms">
+            <div id="musicBar" class="barsinprogram boxprogram makeboxeaseout floatleft"></div>
             <div v-if="outAndInMusic" class="textalign">{{ this.$store.state.musicList.length }}</div>
             <div v-else class="textalign biggerline"> - </div> 
         </div>
-        <div class="pcbarone">
-            <div id="sportBar" class="barsinprogram boxprogram three floatleft"></div>
+        <div class="barstodisplayprograms">
+            <div id="sportBar" class="barsinprogram boxprogram makeboxeaseout floatleft"></div>
             <div v-if="outAndInSport" class="textalign">{{ this.$store.state.sportList.length }}</div>
             <div v-else class="textalign biggerline"> - </div>
         </div>
-          <div class="pcbarone">
-            <div id="humourBar" class="barsinprogram boxprogram three floatleft"></div>
+          <div class="barstodisplayprograms">
+            <div id="humourBar" class="barsinprogram boxprogram makeboxeaseout floatleft"></div>
             <div v-if="outAndInHumour" class="textalign">{{ this.$store.state.humourList.length }}</div>
             <div v-else class="textalign biggerline"> - </div>
             
@@ -67,8 +67,7 @@
         <div v-if="outAndInDoku && !sorted">
           <div class="programs" v-for="programs of this.$store.state.documentaryList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-            <img class="image" :src="programs.programimage"
-            /></a>
+            <img class="image" :src="programs.programimage" alt=""></a>
             <div class="listtext">
                 <em>{{ programs.name }}</em>{{programs.description}}
             </div>
@@ -79,8 +78,7 @@
       <div v-if="outAndInMusic && !sorted">
         <div class="programs" v-for="programs of this.$store.state.musicList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-              <img class="image" :src="programs.programimage"
-            /></a>
+              <img class="image" :src="programs.programimage" alt=""></a>
             <div class="listtext">
               <em>{{ programs.name }}</em>{{programs.description}}
             </div>
@@ -90,8 +88,7 @@
       <div v-if="outAndInSport && !sorted">  
         <div class="programs" v-for="programs of this.$store.state.sportList" v-bind:key="programs">
           <a target="_blank" :href="programs.programurl">
-            <img class="image" :src="programs.programimage"
-          /></a>
+            <img class="image" :src="programs.programimage" alt=""></a>
           <div class="listtext">
             <em>{{ programs.name }}</em>{{programs.description}}
           </div>
@@ -101,8 +98,7 @@
       <div v-if="outAndInHumour && !sorted">
         <div class="programs" v-for="programs of this.$store.state.humourList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-              <img class="image" :src="programs.programimage"
-            /></a>
+              <img class="image" :src="programs.programimage" alt=""></a>
             <div class="listtext">
               <em>{{ programs.name }}</em>{{programs.description}}
             </div>
@@ -112,8 +108,7 @@
     <div v-if="this.sorted">
         <div class="programs" v-for="programs of sortedAlphaList" v-bind:key="programs">
             <a target="_blank" :href="programs.programurl">
-              <img class="image" :src="programs.programimage"
-            /></a>
+              <img class="image" :src="programs.programimage" alt=""></a>
             <div class="listtext">
               <em>{{ programs.name }}</em>{{programs.description}}
             </div>
@@ -124,33 +119,30 @@
       </div>
     <div class="buttonforalfabethic">
         <input type="checkbox" id="buttonalfabetisk" class="btn" @click="sortAlphabetically('alphabetically', true)">
-        <label for="buttonalfabetisk" class="textforcheckbox goupabit">Bokstavsordning</label>
+        <label for="buttonalfabetisk" class="textforcheckbox">Bokstavsordning</label>
     </div>
 
     <div class="straightline"></div>
       
     </div>
-            
-        
-        
-
 </section> 
 </template>
 
 <script>
 export default{
     data(){
-      return{
-        sortedAlphaList: [],
-        sorted: false,
-        outAndInDoku: false,
-        outAndInMusic: false,
-        outAndInSport: false,
-        outAndInHumour: false,
-      }
+        return{
+            sortedAlphaList: [],
+            sorted: false,
+            outAndInDoku: false,
+            outAndInMusic: false,
+            outAndInSport: false,
+            outAndInHumour: false,
+        }
     },
     methods:{
-      changeProgramWidth(barId) {
+        // Checks which button is pressed and calls a method that changes the length of the corresponding bar
+        changeProgramWidth(barId) {
             if (barId === 'docBar') {
                 this.checkAndChangeStatus(barId, this.$store.state.documentaryList, this.outAndInDoku)
                 this.outAndInDoku = !this.outAndInDoku;
@@ -167,23 +159,21 @@ export default{
                 this.checkAndChangeStatus(barId, this.$store.state.humourList ,this.outAndInHumour)
                 this.outAndInHumour = !this.outAndInHumour;
             }
-
             this.outAndIn = !this.outAndIn;
         },
-
+        //Changes the length of a bar depending on what button is pressed
         checkAndChangeStatus(barId, value, outAndIn) {
             if (!outAndIn) {
-              if(value.length >= 100){
-                document.getElementById(barId).style.width = "50vh";
-              }else{
-                document.getElementById(barId).style.width = (value.length/2.5)+"vh";
-              }
-              
+                if(value.length >= 100){
+                    document.getElementById(barId).style.width = "50vh";
+                }else{
+                    document.getElementById(barId).style.width = (value.length/2.5)+"vh";
+                }
             } else {
-              document.getElementById(barId).style.width = "1vh";
+                document.getElementById(barId).style.width = "1vh";
             }
-            
         },
+        // Add each list of programs to a combined list that sorts alphabetically
         sortAlphabetically(sortBy, sorting){
             this.sortedAlphaList = []
             if(this.outAndInDoku === true){
@@ -212,11 +202,8 @@ export default{
             }
             if(sorting === true){
                 this.sorted = !this.sorted
-            }
-            
-            
-          }
-
+            } 
+        }
     }
 }
 </script>
@@ -240,14 +227,14 @@ export default{
     }
     .buttonforalfabethic{
         position: absolute;
+        width: 40vw;
         display: flex;
-        justify-content: center;
-        flex-direction: row;
+        justify-content: space-around;
         align-items: center;
+        top: 15vh;
         right: -10vw;
-        top: 17vh;
     }
-    .pcbarone{
+    .barstodisplayprograms{
         display: flex;
         flex-direction: row;
     }
@@ -312,10 +299,8 @@ export default{
             justify-content: space-around;
             margin-bottom: 3vh;
             margin-left: 0;
+            margin-top: 0;
             
-        }
-        .rightlayoutpc{
-    
         }
         .programoverflow{
             overflow-y: auto;

@@ -1,5 +1,3 @@
-
-
 <template>
 
 <div>
@@ -10,8 +8,8 @@
             <nav class="navbarforpc">
                 <ul class="removelistdecoration">
                     <li class="navbartext"><router-link to="/trafikstatistik" class="navbarhover boldonwhatpage">Trafikstatistik</router-link></li>
-                    <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover">Trafikhändelser</router-link></li>
-                    <li class="navbartext"><router-link to="/program" class="navbarhover">Program</router-link></li>
+                    <li class="navbartext"><router-link to="/trafikhandelser" class="navbarhover">Trafikstörningar</router-link></li>
+                    <li class="navbartext"><router-link to="/program" class="navbarhover">Radioprogram</router-link></li>
                 </ul>
             </nav>
 
@@ -25,10 +23,8 @@
             <p>Jämför trafikhändelser mellan städer.</p>
         </span>
 
-        <div class="rightlayoutpc notindexpages">
+        <div class="rightlayoutpc fornotindexpages">
 
-            
-            
             <div id="layoutinaccidents">
             
                 <div class="buttoncontainer">
@@ -78,11 +74,7 @@
                 </div>
             
             </div>
-
-
             </div>
-            
-         
         </section>
     </div>
 
@@ -100,8 +92,8 @@ export default {
         }
     },
     methods: {
-        changeWidth(type1, type2, type3, ide1, ide2, ide3){
-            
+        //Checks which button is pressed and calls a method that changes the corresponding bars length
+        changeWidth(type1, type2, type3, ide1, ide2, ide3){  
             if(ide1==='goteborgroad')
             {
                 this.checkStatus(type1, type2, type3, ide1, ide2, ide3, this.outAndInGoteborg)
@@ -120,7 +112,7 @@ export default {
             
             
         },
-        
+        //Changes the width of the bars depending on the lenght of the list
         checkStatus(type1, type2, type3, ide1, ide2, ide3, outAndIn){
             let ide = [ide1, ide2, ide3]
             let type = [type1, type2, type3]

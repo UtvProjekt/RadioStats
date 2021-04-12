@@ -37,7 +37,7 @@ export default createStore({
         }
     },
     mutations: {
-        
+        // Fetches traffic messages and places them in lists depending on coordinates and the area name
         async creatingStorningLists(state){
             let response = await fetch("https://api.sr.se/api/v2/traffic/messages?format=json")
             let json = await response.json()
@@ -114,7 +114,9 @@ export default createStore({
                     
                 }
             }
+
         },
+        // Fetches traffic messages and places them in lists depending on coordinates and area names
         async creatingTrafficLists(state){
             let jsonall = await fetch("https://api.sr.se/api/v2/traffic/messages?format=json")
             let jsonpages = await jsonall.json()
@@ -216,38 +218,37 @@ export default createStore({
         
 
         },
+        // Fetches programs and places them in lists depending on category
         async creatingProgramLists(state){
-
             let categories = [82, 133, 10, 5]
-
             for(let category of categories){
-              let pages = await fetch("https://api.sr.se/api/v2/programs/index?format=json&programcategoryid=" + category)
-              let nrOfPages = await pages.json()
-              for(let i = 1; i<=nrOfPages.pagination.totalpages; i++){
-                let message = await fetch("https://api.sr.se/api/v2/programs/index?format=json&programcategoryid=" + category + "&page=" + i)
-                let jsonmessage = await message.json()
+                let pages = await fetch("https://api.sr.se/api/v2/programs/index?format=json&programcategoryid=" + category)
+                let nrOfPages = await pages.json()
+                for(let i = 1; i<=nrOfPages.pagination.totalpages; i++){
+                    let message = await fetch("https://api.sr.se/api/v2/programs/index?format=json&programcategoryid=" + category + "&page=" + i)
+                    let jsonmessage = await message.json()
                 
-                if(category === 82){
-                  for(let program of jsonmessage.programs){
-                    state.documentaryList.push(program)
-                  }
+                    if(category === 82){
+                        for(let program of jsonmessage.programs){
+                            state.documentaryList.push(program)
+                        }
+                    }
+                    if(category === 133){
+                        for(let program of jsonmessage.programs){
+                            state.humourList.push(program)
+                        }
+                    }
+                    if(category === 10){
+                        for(let program of jsonmessage.programs){
+                            state.sportList.push(program)
+                        }
+                    }
+                    if(category === 5){
+                        for(let program of jsonmessage.programs){
+                            state.musicList.push(program)
+                        }
+                    }
                 }
-                if(category === 133){
-                  for(let program of jsonmessage.programs){
-                    state.humourList.push(program)
-                  }
-                }
-                if(category === 10){
-                  for(let program of jsonmessage.programs){
-                    state.sportList.push(program)
-                  }
-                }
-                if(category === 5){
-                  for(let program of jsonmessage.programs){
-                    state.musicList.push(program)
-                  }
-                }
-              }
             }
 
         }
