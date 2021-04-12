@@ -1,4 +1,4 @@
-# radiostats
+# Radiostats - Team BabyBlue
 
 This website uses Sveriges Radios API. It shows multiple visualisations of traffic statistics and/or programs.
 
